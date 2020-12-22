@@ -1,0 +1,14 @@
+usr/lib/libarts_mpeglib.la
+usr/lib/libarts_mpeglib-0.3.0.so.*
+usr/lib/mcop/WAVPlayObject.mcopclass
+usr/lib/mcop/MP3PlayObject.mcopclass
+usr/lib/mcop/MPGPlayObject.mcopclass
+usr/lib/mcop/OGGPlayObject.mcopclass
+usr/lib/mcop/CDDAPlayObject.mcopclass
+usr/lib/mcop/VCDPlayObject.mcopclass
+usr/lib/mcop/NULLPlayObject.mcopclass
+usr/lib/mcop/SplayPlayObject.mcopclass
+usr/lib/libarts_splay.so.*
+usr/lib/libarts_splay.la
+usr/bin/so_play
+usr/bin/mpeglibartsplay

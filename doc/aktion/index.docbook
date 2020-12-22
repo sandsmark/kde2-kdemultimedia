@@ -1,0 +1,1685 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+  <!ENTITY kappname "&aktion;">
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>The &aktion; Handbook</title>
+
+<authorgroup>
+<author>
+<firstname>Chris</firstname>
+<othername>D.</othername>
+<surname>Corbettis</surname>
+<affiliation>
+<address><email>chris@corbettis.fsnet.co.uk</email></address>
+</affiliation>
+</author>
+
+<othercredit role="developer">
+<firstname>Guillermo</firstname>
+<othername>P.</othername>
+<surname>Marotte</surname>
+<affiliation><address><email>g-marotte@usa.net</email></address>
+</affiliation>
+<contrib>Developer</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation>
+<address><email>lauri@kde.org</email></address>
+</affiliation>
+<contrib>Reviewer</contrib>
+</othercredit>
+
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Chris D. Corbettis</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>16/12/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+
+<abstract>
+<para>&aktion; is a video player</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>aKtion</keyword>
+<keyword>kdemultimedia</keyword>
+<keyword>mpeg</keyword>
+<keyword>avi</keyword>
+<keyword>QuickTime</keyword>
+<keyword>gif</keyword>
+<keyword>xanim</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>&aktion; is a video player front end for
+<application>Xanim</application>. It supports numerous video codecs
+found on the Internet, including mpeg1, QuickTime and animated gif.
+Please report any problems or feature requests to the &kde; mailing
+lists.</para>
+
+</chapter>
+
+<chapter id="using-kapp">
+<title>Using &aktion;</title>
+
+<screenshot>
+<screeninfo>Here's a screenshot of &aktion;</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="aktion.png" format="PNG"/>
+          </imageobject>
+	  	  <textobject>
+	    <phrase>Screenshot</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>Basic use of &aktion; is very simple.
+<mousebutton>Right</mousebutton> click in the main window or select the
+<guiicon>open</guiicon> icon in the toolbar, choose the movie you wish
+to watch, and press the <guibutton>OK</guibutton> button.</para>
+
+<sect1 id="context-menu">
+<title>The Context Menu</title>
+
+<para>The Context menu is accessed by clicking the
+<mousebutton>right</mousebutton> mouse button over the playback window.
+It is used to quickly change the playback size, open video files and
+access the video file information dialog.</para> 
+
+<para>The Context menu is described further in
+<xref linkend="video-context-menu"/>.</para>
+
+</sect1>
+
+<sect1 id="aktion-fullscreen">
+<title>Full Screen &aktion;</title>
+
+<para>It is possible to watch video playback in full-screen.
+<mousebutton>Right</mousebutton> click anywhere in &aktion; and choose
+<guimenuitem>Full Screen</guimenuitem>. To exit,
+<mousebutton>left</mousebutton> or <mousebutton>right</mousebutton>
+click on the screen. You may need to enable this feature if it does not
+currently work.</para>
+
+<para>If possible, use the XFree86 VidMode and DGA extensions.  These
+extensions allow the application to automatically change the screen
+resolution to better fit the size of the video.  Traditionally a video
+of, say, 320x200 would be scaled up on a 800x600 display. This scaling
+requires extra work and the result is not appealing at all.  In the
+setup dialog there are two check boxes of interest:</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Use XFree86-VidModeExtensions (if available)</guilabel></term>
+<listitem><para><action>enable full screen mode</action></para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Grab the mouse</guilabel></term>
+<listitem><para>&aktion;<action> takes control of the mouse in full screen
+mode</action></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="commands">
+<title>Command Reference</title>
+
+<sect1 id="video-context-menu">
+<title>The Video Context Menu</title>
+
+<para>The Video Context Menu can be reached by <mousebutton>right</mousebutton>
+clicking inside the video window while a movie is loaded.  </para>
+
+<variablelist>
+<varlistentry>
+<term><guimenuitem>Video Information</guimenuitem></term>
+<listitem><para>Displays a popup with information about the currently loaded
+movie, including the number of frames, the type of encoding, and its original
+pixel size.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Open File</guimenuitem></term>
+<listitem><para>Opens a standard &kde; <quote>open file</quote> dialog
+box, with predefined filters for the file formats supported by
+&aktion;.</para></listitem> 
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Setup</guimenuitem></term>
+<listitem><para>Opens the <guilabel>Setup</guilabel> dialog, where you can
+configure &aktion;'s behavior.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Original Size</guimenuitem></term>
+<listitem><para>Resizes the &aktion; window to the original size of the movie.
+This obviously has no effect unless you've already resized the movie at some
+point.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Half Size</guimenuitem></term>
+<listitem><para>Resizes the &aktion; window to half the original size of the
+movie.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Double Size</guimenuitem></term>
+<listitem><para>Resizes the &aktion; window to double the original size of the
+movie.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Maximized</guimenuitem></term>
+<listitem><para>Resizes the &aktion; window to the maximum size possible
+to fit on your screen. The movie will maintain its own aspect ratio
+(that is, the relationship between its height and width) rather than
+distorting to fit your screen.  A tall thin movie will still be a tall
+thin movie, but now maximized so that the largest dimension matches your
+screens largest dimension, with the exception of permanent screen
+features such as the &kicker; panel.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Full Screen</guimenuitem></term>
+<listitem><para>Lets &aktion; take over your screen.</para>
+<para>Much more information is available in <xref
+linkend="aktion-fullscreen"/></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="toolbar">
+<title>The Toolbar</title>
+
+<screenshot>
+<screeninfo>The &aktion; toolbar</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="aktiontoolbar.png" format="PNG"/>
+          </imageobject>
+	  	  <textobject>
+	    <phrase>Toolbars</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+			       
+<para>The toolbar is displayed along the bottom edge of the &aktion;
+window. It contains icons as follows:</para>
+
+<variablelist>
+<varlistentry>
+<term><guiicon>Open</guiicon></term>
+<listitem><para>Opens a standard &kde; <quote>open file</quote> dialog
+box, with predefined filters for the file formats supported by
+&aktion;.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guiicon>Play</guiicon></term>
+<listitem><para>Start playing the movie.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guiicon>Stop</guiicon></term>
+<listitem><para>Stop playing the movie.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guiicon>Rewind</guiicon></term>
+<listitem><para>Rewind the movie.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guiicon>Fast Forward</guiicon></term>
+<listitem><para>Fast Forward the movie.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guiicon>Setup</guiicon></term>
+<listitem><para>Opens the <link linkend="aktion-setup">Setup</link>
+dialog.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guiicon>Help</guiicon></term>
+<listitem><para>Opens the &aktion; help page (this document).</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>Just above the toolbar, on the right of the &aktion; window, is a
+volume slider.  This can be used to adjust the volume of the movie, from
+lower (to the left) to higher (to the right).</para>
+
+</sect1>
+
+<sect1 id="aktion-setup">
+<title>The &aktion; Setup dialog</title>
+
+<para>The Setup dialog contains five main tabs:</para>
+
+<itemizedlist>
+<listitem><para><link
+linkend="setup-audio"><guilabel>Audio</guilabel></link></para></listitem>
+<listitem><para><link 
+linkend="setup-color"><guilabel>Color</guilabel></link></para></listitem>
+<listitem><para><link 
+linkend="setup-scaling"><guilabel>Scaling</guilabel></link></para></listitem>
+<listitem><para><link 
+linkend="setup-capture"><guilabel>Capture</guilabel></link></para></listitem>
+<listitem><para><link 
+linkend="setup-others"><guilabel>Others</guilabel></link></para></listitem>
+</itemizedlist>
+
+<para>The dialog also contains standard <guibutton>OK</guibutton> and
+<guibutton>Cancel</guibutton> buttons.  Click <guibutton>OK</guibutton>
+to close the dialog and save all your changes, and click
+<guibutton>Cancel</guibutton> to close the dialog and discard all your
+changes.</para>
+
+<sect2 id="setup-audio">
+<title>Setup <guilabel>Audio</guilabel></title>
+
+<para>This tab contains options relating to audio during movies.</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Audio enable</guilabel></term>
+<listitem><para>Enables audio. If this is unchecked, there will be no sound
+during movies.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Skip frames for audio sync</guilabel></term>
+<listitem><para>Checking this allows &aktion; to skip over occasional video
+frames, in order to keep the video and audio synchronised.  Enable this if you
+have a slower machine and find that the video and audio are running at
+different speeds - often the audio track will finish while the video track is
+only part way through.  There will be a loss of video quality if this is
+selected, but it will range from imperceptible to almost unwatchable, based
+mostly on the speed of your machine and how much memory it
+has.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Show volume slider</guilabel></term>
+<listitem><para>Enable or disable display of the volume slider, above
+and to the right of the toolbar.  This is enabled by default.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Initial volume (0-100)</guilabel></term>
+<listitem><para>Sets the volume at the start of a movie.  Changes made
+on the volume slider will be relative to this level. You may use the
+spinners to change the value, or type directly in the box.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="setup-color">
+<title>Setup <guilabel>Color</guilabel></title>
+
+<para>This tab provides options to configure &aktion;'s use of color
+during movies.</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Color mapping (non TrueColor displays)</guilabel></term>
+<listitem><para>This section applies only to displays of less than
+TrueColor (16 bit)  If you have problems with colors appearing strangely, try
+ these options.</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>TrueColor to 322 (static color)</guilabel></term>
+<listitem><para>If selected, &aktion; will convert movies to the
+Static322 color map before displaying them.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Color lookup table</guilabel></term>
+<listitem><para>If this item is selected, &aktion; will create a palette
+to use as a lookup table.  You can select how many frames to look ahead
+to create the table, but the higher the number you select, the more
+intense the memory use will be. The default is 5</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>TrueColor to grayscale</guilabel></term>
+<listitem><para>&aktion; will convert the movie to grayscale if this
+item is selected.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>None</guilabel></term>
+<listitem><para>The default is <guilabel>None</guilabel> - &aktion; will
+not perform any color mapping.  You should only try the other options if
+you have trouble with colors during movie playback.</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Gamma of display</guilabel>:</term>
+<listitem><para>Set gamma of display. Gamma values greater than 1.0
+typically brighten the animation.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="setup-scaling">
+<title>Setup <guilabel>Scaling</guilabel></title>
+
+<para>This tab contains items relating to the display size of the
+movie.</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Display scale</guilabel></term>
+<listitem><para>Sets the size of the movie, in relation to its original
+size</para> <para>You may choose from any of the following values</para>
+<simplelist>
+<member>Original size</member>
+<member>Half size</member>
+<member>Double size</member>
+<member>Maximised</member>
+<member>Full Screen</member>
+</simplelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Full screen</guilabel></term>
+<listitem><para>Further options relating to using &aktion; in full screen
+mode.</para>
+<variablelist>
+<varlistentry>
+<term><guilabel>Use XFree86-VidModeExtensions (if available)</guilabel></term>
+<listitem><para>Enables full screen mode. Explained further in the
+section on <link linkend="aktion-fullscreen">Using &aktion;
+fullscreen</link></para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Grab the mouse</guilabel></term>
+<listitem><para>Takes control of the mouse while in full screen
+mode.</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="setup-capture">
+<title>Setup <guilabel>Capture</guilabel></title>
+
+<para>&aktion; allows you to <quote>capture</quote> or take a
+<quote>snapshot</quote> of frames from the movie you are viewing, by
+simply pressing the key <keycap>C</keycap>.  This tab contains options
+relating to this feature.</para> 
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Output file format</guilabel></term>
+<listitem><para>Choose what format your captures will be saved as. You may
+choose from the following:</para>
+
+<simplelist>
+<member>bmp</member>
+<member>jpeg</member>
+<member>pbm</member>
+<member>pgm</member>
+<member>png</member>
+<member>ppm</member>
+<member>xbm</member>
+<member>xpm</member>
+</simplelist>
+
+<para>The default is png</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Output file directory</guilabel>:</term>
+<listitem><para>Choose where the screen captures will be saved.  The default is
+<filename>~</filename> (your home directory.)  You may type a path to a
+different directory directly in the text box, or you can press the
+<guibutton>...</guibutton> to open a file selection dialog and browse to the
+desired location.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="setup-others">
+<title>Setup <guilabel>Others</guilabel></title>
+
+<para>This tab contains other miscellaneous options.</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Video Loading</guilabel></term>
+<listitem><para>This section contains options relating to pre-loading of
+movies. You may choose one of the following:</para>
+<variablelist>
+<varlistentry>
+<term><guilabel>Preload animation into memory</guilabel></term>
+<listitem><para>Loads the whole animation into your computers memory before it
+begins to play.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Preload and uncompress animation</guilabel></term>
+<listitem><para>Loads the whole animation into your computers memory, and
+uncompresses it, before beginning to play it.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Read each sector only when needed</guilabel></term>
+<listitem><para>Performs no preloading, reading each section of the movie from
+disk as it's needed.</para></listitem>
+</varlistentry>
+</variablelist>
+<para>The default is <guilabel>Read each sector only when
+needed</guilabel></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Use X11 shared memory</guilabel></term>
+<listitem><para>This is unavailable if you chose "<guilabel>Preload and
+uncompress animation</guilabel>" in the section above.It is deselected by
+default.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Use X11 multi buffering</guilabel></term>
+<listitem><para>If selected, &aktion; will use X11 Buffering (if present) to
+smooth animations by double-buffering. It is selected by
+default.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Use Pixmap instead of Image in X11</guilabel></term>
+<listitem><para>If selected, &aktion; will use Pixmap instead of Image in
+X11shared. This option has no effect if the animation is
+buffered.</para></listitem> 
+</varlistentry>
+<varlistentry>
+<term><guilabel>Initial directory</guilabel></term>
+<listitem><para>Set the directory that is shown when you choose to open a new
+movie. You may type a value directly in the text box, or use the
+<guibutton>...</guibutton> button to browse to your preferred location.  Of
+course, this is only the default directory, and you can browse to another
+location when actually opening movies. By default this is empty, which in most
+cases results in &aktion; beginning to look for movies from your home
+directory.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Loop animation</guilabel></term>
+<listitem><para>If selected, when the movie reaches its end, it will begin over
+at the start, until you press the <guiicon>Stop</guiicon>
+button.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Automatically start playing video</guilabel></term>
+<listitem><para>If this is chosen, &aktion; will begin playing the selected
+ movie
+as soon as you have selected it. If this is not checked, you will have to
+press <guiicon>play</guiicon> yourself to start playing the
+movie.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Extra XAnim parameters</guilabel></term>
+
+<listitem><para>If you wish to pass any extra parameters to the underlying
+<application>XAnim</application> application, you may enter them
+here.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="developers">
+<title>Developer's Guide to &aktion;</title>
+
+<para>&aktion; includes the <classname>KXAnim</classname> widget wrapper, with
+ it
+you can include video playback in your own programs.</para>
+
+<!-- Use refentries to describe APIs.  Refentries are fairly complicated and you
+should consult the docbook reference for further details. The example below was
+taken from that reference and shortened a bit for readability. -->
+
+<refentry id="re-1007-kanim">
+
+<refmeta>
+<refentrytitle>KXAnim</refentrytitle>
+<refmiscinfo>KXAnim Class Reference</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>KXAnimChildren</refname>
+<refpurpose>A xanim wrapper to allow video playing in your apps.</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<refsynopsisdivinfo>
+<date>18/08/2000</date>
+</refsynopsisdivinfo>
+
+<synopsis>
+Public Members
+
+      KXAnim (QWidget *parent, const char *name=0)
+      ~KXAnim ()
+      void setFile (QString file)
+      void setAutoResize (bool val)
+      bool getAutoResize ()
+      void updateSize ()
+      void setLoop (bool val)
+      bool getLoop ()
+      QString getVideoFileName ()
+      int getVideoHeight ()
+      int getVideoWidth ()
+      float getVideoSpeed ()
+      int getVideoFrames ()
+      QString getVideoCodec ()
+      QString getErrorCode ()
+      QString getErrorString ()
+      bool isPlaying ()
+      bool isActive ()
+      void resetXAnimDefaults ()
+      void setAudio (bool val)
+      void setAudioSync (bool val)
+      void setInitialVolume (int val)
+      enum colorMap { static332, lookupTable, grayScale, none }
+      void setColorMapping (colorMap val)
+      void setColorAhead (int val)
+      void setGammaDisplay (float val)
+      void setResizing (bool val)
+      void setScaleFactor (float val)
+      void setScaleHFactor (float val)
+      void setScaleVFactor (float val)
+      void setScaleWidth (int val)
+      void setScaleHeight (int val)
+      void setScaleDisplayToBuffer (bool val)
+      void setScaleFactorB (float val)
+      void setScaleHFactorB (float val)
+      void setScaleVFactorB (float val)
+      void setScaleWidthB (int val)
+      void setScaleHeightB (int val)
+      void setScaleBufferToDisplay (bool val)
+      void setLoading (int val)
+      void setX11Shared (bool val)
+      void setMultiBuffer (bool val)
+      void setUsePixmap (bool val)
+      void setX11VisualClass ( const char *val)
+      void setPauseAt (int val)
+      void setExtraParameters (const char *val)
+      void setExecutable (const char *val)
+
+Public Slots
+
+      void play ()
+      void pause ()
+      void stop ()
+      void stepForward ()
+      void stepBack ()
+      void stepForwardWA ()
+      void stepBackWA ()
+      void toggleSound ()
+      void volumeIncrement ()
+      void volumeDecrement ()
+      void setVolume (int v)
+      void faster ()
+      void slower ()
+      void resetSpeed ()
+
+Protected Members
+
+      void changeProperty ( const char * c)
+      virtual void closeEvent ( QCloseEvent *)
+      virtual void mousePressEvent ( QMouseEvent *)
+
+Signals
+
+      void stopped ()
+      void mouseClick ( QMouseEvent *)
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title>Detailed Description of <classname>KXAnim</classname></title>
+
+<para>#include &lt;kxanim.h&gt;</para>
+
+<para>Inherits: <classname>QWidget</classname></para>
+
+<para>Widget class for video playing</para>
+
+<para>This widget is an <application>xanim</application> wrapper to
+easily allow the video playing on your applications.</para>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef><function>KXAnim</function></funcdef>
+<paramdef>QWidget <parameter>*parent</parameter></paramdef>
+<paramdef>const char <parameter>*name=0</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Constructor. The parent argument is <emphasis>NOT</emphasis>
+optional.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setFile</function></funcdef>
+<paramdef>QString <parameter>file</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Use this method to tell the player the name of the file to
+play. The file will not start to play until you call the
+<function>play()</function> slot. You need to call <function>stop()</function>
+before you can set a new filename. </para> 
+<para>After calling this method, you should wait for an stopped signal. Just then,
+the information about the file will be available.</para>
+<para>Also check for <returnvalue>KXAnim::getErrorNumber</returnvalue> and
+<function>getErrorString</function> to know if there was some
+error.</para></listitem> 
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setAutoResize</function></funcdef>
+<paramdef>bool
+<parameter><replaceable>val</replaceable></parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>If <parameter>val</parameter>==<returnvalue>true</returnvalue>,
+the widget will resize by himself after the <function>setFile()</function> to
+fit to the size of the video. If
+<parameter>val</parameter>==<returnvalue>false</returnvalue>, the video size
+will be adjusted to fit to the widget size.</para> 
+<para>The size of the widget is automatically updated by
+<function>setFile</function> and play But if you need to know the effective size
+of the widget *before* you call <function>play</function>, you need to call
+<function>updateSize</function> manually.</para>
+<para>Default is <returnvalue>true</returnvalue></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>bool <function>getAutoResize</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns the auto-resize state (see
+<function>setAutoResize</function> ).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>updateSize</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem>
+<para>Updates the widget size to fit video size (taking care of the scale
+factors that applies). See <function>setAutoResize</function>
+.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setLoop</function></funcdef>
+<paramdef>bool <parameter><replaceable>val</replaceable></parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem>
+<para>If <parameter>val</parameter>==<returnvalue>true</returnvalue>, the video
+will loop forever.</para> 
+<para>Default is <returnvalue>true</returnvalue></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>bool <function>getLoop</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns the loop state ( see <function>setLoop</function>
+).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>QString <function>getVideoFileName</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns the current video file name (or an empty string, if
+there's no video yet).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>int <function>getVideoHeight</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns the video height (in pixels).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>int <function>getVideoWidth</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns the video height (in pixels).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>float <function>getVideoSpeed</function></funcdef>
+<paramdef></paramdef>
+</funcprototype></funcsynopsis> [public] </term>
+<listitem><para>Returns the video playback speed (in frames per
+second).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>int <function>getVideoFrames</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns the number of frames in the video.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>QString <function>getVideoCodec</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns the string that describes the video
+codec.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>QString <function>getErrorCode</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns the the error code number. You should check this number
+after a <function>setFile</function>. If the code is
+<returnvalue>zero</returnvalue> , the there were no errors. To get a string
+containing a description see
+<function>getErrorCode</function>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>QString <function>getErrorString</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns the string that describes the error during
+<function>setFile</function>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>bool <function>isPlaying</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns <returnvalue>true</returnvalue> is the video is in play
+mode. Otherwise it returns <returnvalue>false</returnvalue>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>bool <function>isActive</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Returns <returnvalue>true</returnvalue> is the video is
+active. Otherwise it returns <returnvalue>false</returnvalue>. The widget is
+<emphasis>NOT</emphasis> Active only when it's stopped. Therefore, you can use
+this method to check if the video is REALLY stopped. </para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>resetXAnimDefaults</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>This method reset all the configuration parameters to their
+default values.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setAudio</function></funcdef>
+<paramdef>bool <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>If <parameter>val</parameter>==<returnvalue>true</returnvalue>,
+enables sound output.</para> 
+<para>Default is <returnvalue>true</returnvalue></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setAudioSync</function></funcdef>
+<paramdef>bool <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>If <parameter>val</parameter>==<returnvalue>true</returnvalue>,
+allows <application>xanim</application> skip video frames for audio sync.</para>
+<para>Default is <returnvalue>true</returnvalue></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setInitialVolume</function></funcdef>
+<paramdef>int <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Sets the initial audio volume.</para>
+<para>Default is <returnvalue>40</returnvalue></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<!-- Lauri: find out how to do this one!! -->
+enum colorMap ( static332, lookupTable, grayScale, none ) [public]
+</term><listitem>
+<para>See setColorMapping .</para>
+</listitem></varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setColorMapping</function></funcdef>
+<paramdef>colorMap <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public]</term>
+<listitem><para>Tells <classname>KXAnim</classname> which type of color mapping
+to use for non truecolor displays.</para>
+<para>If
+<parameter>val</parameter>==<returnvalue>KXAnim::static322</returnvalue>,
+<application>xanim</application> will convert truecolor anims to
+static322.</para>
+<para>If
+<parameter>val</parameter>==<returnvalue>KXAnim::lookupTable</returnvalue>,
+<application>xanim</application> will sample the color of truecolor animations
+ahead of time and forms a color lookup table.</para>
+<para>If
+<parameter>val</parameter>==<returnvalue>KXAnim::grayScale</returnvalue>,
+<application>xanim</application> will convert TrueColor animations to gray
+scale.</para>
+<para>Those three option are ignored for TrueColor and DirectColor
+displays.</para>
+<para>if <parameter>val</parameter>==<returnvalue>KXAnim::none</returnvalue>,
+<application>xanim</application> will use the default color mapping.</para>
+<para>Default is <returnvalue>KXAnim::none</returnvalue></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setColorAhead</function></funcdef>
+<paramdef>int <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>This sets the number of frames ahead to use for the look up
+table when using <returnvalue>KXAnim::lookupTable</returnvalue> in
+<function>setColorMapping</function>.</para>
+<para>Default is <returnvalue>5</returnvalue></para>
+</listitem></varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setGammaDisplay</function></funcdef>
+<paramdef>float <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Set gamma of display. Gamma's greater than 1.0 typically
+brighten the animation.</para>
+<para>Default is <returnvalue>1.0</returnvalue></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void setResizing</funcdef>
+<paramdef>bool <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>If <parameter>val</parameter>==<returnvalue>true</returnvalue>,
+the video size can be changed "on the fly".</para>
+<para>Default is <returnvalue>true</returnvalue></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleFactor</function></funcdef>
+<paramdef>float <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Scale the size of anim by "<parameter>val</parameter>" before
+displaying.</para>
+<para>Default is <returnvalue>1.0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleHFactor</function></funcdef>
+<paramdef>float <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public]</term>
+<listitem><para>Scale the horizontal size of anim by
+"<parameter>val</parameter>" before displaying.</para>
+<para>Default is <returnvalue>1.0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleVFactor</function></funcdef>
+<paramdef>float <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Scale the vertical size of anim by "<parameter>val</parameter>"
+before displaying.</para>
+<para>Default is <returnvalue>1.0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleWidth</function></funcdef>
+<paramdef>int <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Scale the animation to have width "<parameter>val</parameter>"
+before displaying.</para>
+<para>Default is <returnvalue>0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleHeight</function></funcdef>
+<paramdef>int <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Scale the animation to have height "<parameter>val</parameter>"
+before displaying.</para>
+<para>Default is <returnvalue>0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleDisplayToBuffer</function></funcdef>
+<paramdef>bool <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Copy display scaling factors to buffering scaling
+factors.</para>
+<para>Default is <returnvalue>false</returnvalue>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleFactorB</function></funcdef>
+<paramdef>float <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Scale the size of anim by "<parameter>val</parameter>" before
+buffering it.</para>
+<para>Default is <returnvalue>1.0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleHFactorB</function></funcdef>
+<paramdef>float <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Scale the horizontal size of anim by
+"<parameter>val</parameter>" before buffering it.</para>
+<para>Default is <returnvalue>1.0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleVFactorB</function></funcdef>
+<paramdef>float <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Scale the vertical size of anim by "<parameter>val</parameter>"
+before buffering it.</para>
+<para>Default is <returnvalue>1.0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleWidthB</function></funcdef>
+<paramdef>int <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Scale the animation to have width "<parameter>val</parameter>"
+before buffering it.</para>
+<para>Default is <returnvalue>0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleHeightB</function></funcdef>
+<paramdef>int <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Scale the animation to have height "<parameter>val</parameter>"
+before buffering it.</para>
+<para>Default is <returnvalue>0</returnvalue> (no scaling)</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setScaleBufferToDisplay</function></funcdef>
+<paramdef>bool <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Copy buffering scaling factors to display scaling
+factors.</para>
+<para>Default is <returnvalue>false</returnvalue>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setLoading</function></funcdef>
+<paramdef>int <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para><returnvalue>0</returnvalue>: <classname>KXAnim</classname> will
+load the entire video into memory.</para>
+<para><returnvalue>1</returnvalue>: <classname>KXAnim</classname> will load and
+decompress the animation entirely into memory before displaying.</para>
+<para><returnvalue>2</returnvalue>: <classname>KXAnim</classname> will read each
+sector only when needed</para>
+<para>Default is <returnvalue>2</returnvalue>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setX11Shared</function></funcdef>
+<paramdef>bool <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public]</term>
+<listitem><para>If <parameter>val</parameter>==<returnvalue>true</returnvalue>,
+<classname>KXAnim</classname> will use X11 shared memory (this is mutually
+exclusive with <function>setPreload</function> .</para>
+<para>Default is <returnvalue>false</returnvalue>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setMultiBuffer</function></funcdef>
+<paramdef>bool <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>If <parameter>val</parameter>==<returnvalue>true</returnvalue>,
+<classname>KXAnim</classname> will use X11 Buffering (if present) to smooth
+animations by double-buffering. </para> 
+<para>Default is <returnvalue>true</returnvalue>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setUsePixmap</function></funcdef>
+<paramdef>bool <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>If <parameter>val</parameter>==<returnvalue>true</returnvalue>,
+<classname>KXAnim</classname> will use Pixmap instead of Image in
+X11shared. This option has no effect if the animation is buffered.</para>
+<para>Default is <returnvalue>false</returnvalue>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setX11VisualClass</function></funcdef>
+<paramdef>const char <parameter>*val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Select the best <quote>X11 Visual of Class...</quote>
+when displaying the animation. <parameter>val</parameter> can be anyone
+of the following strings and is case insensitive:</para>
+
+<simplelist>
+<member><returnvalue>default</returnvalue></member>
+<member><returnvalue>staticgray</returnvalue></member>
+<member><returnvalue>grayscale</returnvalue></member>
+<member><returnvalue>staticcolor</returnvalue></member>
+<member><returnvalue>pseudocolor</returnvalue></member>
+<member><returnvalue>truecolor</returnvalue></member>
+<member><returnvalue>directcolor</returnvalue></member>
+</simplelist>
+
+<para>Default is <returnvalue>default</returnvalue>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setPauseAt</function></funcdef>
+<paramdef>int <parameter>val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>This will pause <application>XAnim</application> at frame
+<parameter>val</parameter>.
+<parameter>val</parameter>=<returnvalue>-1</returnvalue> disables this
+option.</para>
+<para>Default is <returnvalue>-1</returnvalue> (no pause).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setExtraParameters</function></funcdef>
+<paramdef>const char <parameter>*val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Use this method to pass any extra parameters you want to
+<application>xanim</application> (separated by spaces).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setExecutable</function></funcdef>
+<paramdef>const char <parameter>*val</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public] </term>
+<listitem><para>Use this method to set the executable name for
+<application>xanim</application>. Default is "<returnvalue>xanim</returnvalue>",
+but you can change it, for instance, if you don't have
+<application>xanim</application> in the path.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>play</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Start playing the video.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>pause</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Pauses the video playing (<application>xanim</application> is
+still runnig).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>stop</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Stops the video and exit <application>xanim</application> (don't
+worry about it, it's transparent for the class user).</para>
+<note><para>Calling this slot doesn't mean that the video will stop
+immediately. Use the <returnvalue>stopped</returnvalue> signal to know exactly
+when the player is set to the inactive mode (see <function>isActive</function>
+). </para></note></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>stepForward</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Single step forward one frame. Pauses the video
+playing.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>stepBack</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Single step back one frame. Pauses the video
+playing.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>stepForwardWA</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Single step forward one frame staying with anim. Pauses the
+video playing.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>stepBackWA</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Single step back one frame staying with anim. Pauses the video
+playing.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>toggleSound</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Toggle sound between ON/OFF.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>volumeIncrement</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Increment volume by 1.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>volumeDecrement</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Decrement volume by 1.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>setVolume</function></funcdef>
+<paramdef>int <parameter>v</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Setup volume where <parameter>v</parameter> is a number from
+<returnvalue>0</returnvalue> to
+<returnvalue>100</returnvalue>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>faster</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Increase animation playback speed.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>slower</function></funcdef>
+<paramdef></paramdef>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Decrease animation playback speed.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>resetSpeed</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [public slot] </term>
+<listitem><para>Reset animation playback speed to original
+values.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>changeProperty</function></funcdef>
+<paramdef>const char <parameter>*</parameter> c</paramdef>
+</funcprototype>
+</funcsynopsis> [protected] </term>
+<listitem><para><emphasis>Don't use it!</emphasis> This is internally used for
+the communication with <application>xanim</application>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>stopped</function></funcdef><void/>
+</funcprototype>
+</funcsynopsis> [signal] </term>
+<listitem><para>This signal is emitted after a call to the
+<function>stop()</function> slot, and means that the player has
+<emphasis>really</emphasis> stopped playing (that
+<application>xanim</application> is inactive) (see
+<function>stop</function>).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<funcsynopsis>
+<funcprototype>
+<funcdef>void <function>mouseClick</function></funcdef>
+<paramdef>QMouseEvent <parameter>*</parameter></paramdef>
+</funcprototype>
+</funcsynopsis> [signal] </term>
+<listitem><para>This signal is emitted when the user clicks into the
+widget.</para></listitem> 
+</varlistentry>
+</variablelist>
+</refsect1>
+
+</refentry>
+
+</chapter>
+
+<chapter id="faq">
+<title>Questions and Answers</title>
+
+<qandaset>
+<qandaentry>
+<question><para>What does the Unsupported video codec message
+mean?</para></question>
+<answer><para>It means the video format can not be played. This may be because
+you do not have a full featured <application>xanim</application> installed. See
+the next answer for more details.</para>
+<para>There are some codecs that will not be playable for the foreseeable
+future. The one that may affect you the most is Sorenson as used in QuickTime
+4. </para></answer>
+</qandaentry>
+
+<qandaentry>
+<question><para>How do I get the full featured
+<application>xanim</application>?</para></question>
+<answer><para>Go to the <application>xanim</application> home page and follow
+ the
+instructions to install the cinepak, indeo and creative video codecs. You may
+need to recompile <application>xanim</application>, but check your distributions
+documentation as some are easier to install than others.</para></answer>
+</qandaentry>
+
+<qandaentry>
+<question><para>How do I know if the VidMode and DGA extensions are available on
+my system?</para>
+</question>
+<answer><para>There are two ways to check. Which one you use depends on how you
+installed &aktion;. </para>
+<variablelist>
+<varlistentry>
+<term>Installed &aktion; from source</term>
+<listitem><para>Check the output of <command>./configure</command>, you should
+see <computeroutput>"checking for VidMode extensions..."</computeroutput>. If
+the script prints a <computeroutput>"no"</computeroutput> after this line, then
+you don't have the extensions.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>Installed &aktion; binary (rpm or deb)</term>
+<listitem><para>Look in your system for two files called:
+<filename>libXxf86vm.a</filename> and <filename>libXxf86dga.a</filename>, if you
+have them, good.</para></listitem>
+</varlistentry>
+</variablelist>
+<para>In both cases, if you don't have the extensions, check that you've
+installed the XFree86-devel rpm package from your Linux box. The extensions are
+included in this package.</para></answer>
+</qandaentry>
+
+<qandaentry>
+<question><para>How do I know if the VidMode extensions are working on my
+system?</para></question>
+<answer><para>Try switching video modes with
+<keycombo><keycap>CTRL</keycap><keycap>ALT</keycap><keycap>numpad
++</keycap></keycombo>. If nothing happens, you may only need to enable additional
+resolutions. See the next answer for more details.</para></answer>
+</qandaentry>
+
+<qandaentry>
+<question><para>How do I set up aditional video modes?</para></question>
+<answer><para>You should have a video configuration utility provided with your
+distribution. If not, there is always <application>XF86Config</application>
+available.</para>
+<para>Enable as many resolution modes as you can. At the very least, you will
+want to enable 640x400 alongside your standard everyday
+resolution.</para></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+
+<title>Credits and License</title>
+
+<para>&aktion;</para>
+
+<para>Program copyright 2000 Guillermo P. Marotte
+<email>g-marotte@usa.net</email></para>
+
+<para>Contributors:</para>
+<itemizedlist>
+<listitem><para>Benjamin Sher
+ <email>sher07@bellsouth.net</email></para></listitem>
+</itemizedlist>
+
+<para>Xanim author:</para>
+<itemizedlist><listitem><para>Mark Podlipec</para></listitem>
+</itemizedlist>
+
+<para>Documentation copyright 2000 Chris D. Corbettis
+<email>chris@corbettis.fsnet.co.uk</email></para>
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="getting-kapp">
+<title>How to obtain &aktion;</title>
+
+<para>&aktion; is part of the &kde; project <ulink
+url="http://www.kde.org">http://www.kde.org</ulink>.  &aktion; can be
+found in the kdemultimedia package on <ulink
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, the
+main ftp site of the &kde; project. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Requirements</title>
+
+<para>In order to successfully use &aktion;, you need &kde; 2 and
+<application>xanim</application> 2.70.7.0 or higher. Full screen mode
+requires <application>VidMode</application> and <abbrev>DGA</abbrev>
+extensions to be installed and working.</para>
+
+<para>All required libraries as well as &aktion; itself can be found on <ulink
+url="ftp://ftp.kde.org">The &aktion; home page</ulink> and the <ulink
+url="http://xanim.va.pubnix.com/home.html">Xanim home page</ulink></para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title>Compilation and Installation</title>
+
+<para>In order to compile and install &aktion; on your system, type the
+following  in the base directory of the &aktion; distribution:</para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command>
+ <option>install</option></userinput>
+</screen>
+
+<para>Since &aktion; uses <command>autoconf</command> and
+<command>automake</command> you should have not trouble compiling
+it. Should you run into problems please report them to the &kde; mailing
+lists.</para>
+
+</sect1>
+
+<sect1 id="configuration">
+<title>Configuration</title>
+
+<para>Don't forget to install <application>xanim</application> before
+&aktion;.</para>
+
+</sect1>
+
+</appendix>
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

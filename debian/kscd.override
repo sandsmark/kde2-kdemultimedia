@@ -1,0 +1,1 @@
+kscd: setgid-binary usr/bin/kscd 2755 root/cdrom

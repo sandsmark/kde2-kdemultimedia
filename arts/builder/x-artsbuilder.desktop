@@ -1,0 +1,37 @@
+# KDE Config File
+[Desktop Entry]
+MimeType=application/x-artsbuilder
+Comment=Arts Builder
+Comment[bg]=Звуков дизайнер aRts
+Comment[br]=Arload Arts Builder
+Comment[cs]=Konstruktér aRts
+Comment[da]=Arts bygger
+Comment[eo]=Vi povas krei sonorojn per konektitaj sonmoduloj
+Comment[es]=Arts Builder (diseñador del sintetizador aRts)
+Comment[et]=Arts generaator
+Comment[fi]=Arts Rakentaja
+Comment[fr]=Créateur de synthétiseurs d'aRts
+Comment[gl]=Constructor Arts
+Comment[he]=Arts יאנב
+Comment[hu]=aRts-alapú hangmodellező program
+Comment[is]=Arts-smiður
+Comment[ja]=Artsビルダー
+Comment[ko]=Arts 만들기
+Comment[lt]=Arts Kūrėjas
+Comment[mt]=Bennej Arts
+Comment[nl]=Arts Bouwer
+Comment[no]=Arts-bygger
+Comment[no_NY]=Arts-byggjar
+Comment[pt_BR]=Construtor Arts
+Comment[pt]=Construtor Arts
+Comment[ru]=Звуковой дизайнер aRts
+Comment[sl]=Graditelj Arts
+Comment[sv]=Arts-byggare
+Comment[ta]=Arts ¸ðÎÀÅ÷
+Comment[vi]=Trình thiết kế nghềEthuật(arts builder) 
+Comment[xh]=Umakhi wemizobo
+Comment[zh_CN.GB2312]=Arts 建立程序
+Icon=arts
+Type=MimeType
+Patterns=*.arts;
+X-KDE-AutoEmbed=false

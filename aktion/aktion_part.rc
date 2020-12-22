@@ -1,0 +1,19 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="aktion">
+<MenuBar>
+ <Menu name="view"><Text>&amp;View</Text>
+  <Action name="aktion_play"/>
+  <Action name="aktion_pause"/>
+  <Action name="aktion_stop"/>
+  <Action name="aktion_backward"/>
+  <Action name="aktion_forward"/>
+ </Menu>
+</MenuBar>
+<ToolBar name="Aktion-ToolBar">
+  <Action name="aktion_play"/>
+  <Action name="aktion_pause"/>
+  <Action name="aktion_stop"/>
+  <Action name="aktion_backward"/>
+  <Action name="aktion_forward"/>
+</ToolBar>
+</kpartgui>

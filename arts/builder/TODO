@@ -1,0 +1,44 @@
+- implement File/New and provide templates
+- make application more KDE-like:
+  - use KActions
+  - add toolbar with common functions (like execute)
+  - icons in menus
+  - keyboard accelerators
+  - application icon(s)
+  - status bar
+  - session management
+  - tooltips and help
+  - kpart?
+- implement cut/copy/paste
+- remove need for functions in portablekde.{cpp,h}
+- add more error checking (file open/save etc.)
+- implement undo
+- avoid crashing when loading a bad .arts file
+- write a tutorial in the arts manual
+- fix bug: sometimes connections are not shown
+- create more bitmaps for modules
+- implement some preferences (e.g. zoom scale)
+- create standalone command line tool to load modules that does not
+  depend on KDE
+- fix bug: moving modules does not set modified flag
+- ability to print a module view
+- don't allow execution of a structure with ports (like an instrument) directly
+- editing of structures while they are running (*)
+- wysiwyg editing of visual structures (like qt designer/delphi), requires (*)
+- provide a property dialog like
+   +----------+--------+
+   | property | value  |
+   +----------+--------+
+   | caption  | hello  |
+   | width    | 20     |
+   | height   | 100    |
+   | x        | 30     |
+   | y        | 30     |
+   +----------+--------+
+  this should be very useful in editing objects with lots of properties
+  (widgets)
+- add icons for all modules
+- make _changed signals visible so you can connect the value_changed of a
+  poti to the frequency of a filter
+- make it possible to edit parent property of widgets (i.e. to insert one
+  widget into another)

@@ -1,0 +1,8 @@
+?package(kmix):\
+	needs=x11\
+	section=Apps/Sound\
+	hints="KDE"\
+	kderemove="y"\
+	title="KMix"\
+	command=/usr/bin/kmix
+

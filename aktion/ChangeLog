@@ -1,0 +1,63 @@
+version 1.99 - Kurt Granroth <granroth@suse.com>
+- Ported aKtion! to KDE 2.0
+- Converted aKtion! to embedded component
+
+version 0.3.6
+-added Italian translation (thanks to Alberto Scattini <sigmund@stud.unipg.it>)
+-updated french and slovak translations.
+-now the player exits from full-screen mode when the video is stopped
+-fixed a (stupid) bug in full-screen mode (when using XFree-VidMode extensions)
+ that caused some core-dumps. Fixed documentation too.
+-you don't need to be the root user to use the XF86-VidMode extensions.
+-changed mime-type filenames (be sure to remove the old ones,
+ doing a 'make uninstall' before installing the new aKtion version!)
+ Recommended by Troy Engel.
+
+version 0.3.5
+-added XFree86-VidMode Extensions support
+ Most of the code was shamelessly stealed from the SDL library ( http://www.devolution.com/~slouken/SDL )
+ Read the documentation for more info (in the "Full Screen Mode" section)
+-bugfixes
+
+version 0.3.4
+-updated french translation, and added slovak translation
+
+version 0.3.3
+-added DND support
+ (thanks to Fernando Herrera <fherrera@eurielec.etsit.upm.es>)
+-fixed full-screen mode for KDE 1.1
+-fixed xanim 2.8.0 compatibility 
+-added frame capture function
+-configurable xanim executable
+
+version 0.3.2
+-Full screen mode added
+-Configuration window redesigned
+-bugfixes
+
+version 0.3.1
+-bugfixes only
+
+version 0.3.0
+-resizing "on the fly" allowed
+-mimetypes bug fix
+
+version 0.2.1
+-added volume slider (configurable)
+-configurable initial directory
+-some visual improvements
+
+version 0.2.0
+-vug fixes... bug fixces... bug fixes...
+-configuration dialog added
+-keyboard support
+-pop-up menu when the user right-clicks over the animation
+-comman line option to read the filename
+
+version 0.1.1
+-small bugfixes
+-french, german and hungarian languages supported
+
+version 0.1.0
+-first version!
+

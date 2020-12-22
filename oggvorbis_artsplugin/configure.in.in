@@ -1,0 +1,23 @@
+HAVE_VORBIS=1
+AC_CHECK_HEADER(vorbis/vorbisfile.h,
+	[USELESS_VAR=1],
+	[HAVE_VORBIS=""])
+
+AC_CHECK_LIB(vorbisfile, ov_open,
+	[USELESS_VAR=1],
+	[HAVE_VORBIS=""], -lvorbis -logg)
+
+AC_CHECK_LIB(vorbis, vorbis_info_init,
+	[USELESS_VAR=1],
+	[HAVE_VORBIS=""])
+
+AC_CHECK_LIB(ogg, ogg_page_version,
+	[USELESS_VAR=1],
+	[HAVE_VORBIS=""])
+
+if test "$kde_mpeglib_compiles" = "yes" -o "$HAVE_VORBIS" = ""
+then
+echo "OggVorbis plugin was disabled, either you're compiling mpeglib"
+echo "or you lack the necesary headers and libraries."
+DO_NOT_COMPILE="$DO_NOT_COMPILE oggvorbis_artsplugin"
+fi

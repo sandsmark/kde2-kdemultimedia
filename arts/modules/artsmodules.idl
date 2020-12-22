@@ -1,0 +1,227 @@
+	/*
+
+    Copyright (C) 2000-2001 Stefan Westerfeld
+                            stefan@space.twc.de
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+  
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+   
+    You should have received a copy of the GNU Library General Public License
+    along with this library; see the file COPYING.LIB.  If not, write to
+    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+    Boston, MA 02111-1307, USA.
+
+    */
+
+/*
+ * DISCLAIMER: The interfaces in artsmodules.idl (and the derived .cc/.h files)
+ *             DO NOT GUARANTEE BINARY COMPATIBILITY YET.
+ *
+ * They are intended for developers. You shouldn't expect that applications in
+ * binary form will be fully compatibile with further releases of these
+ * interfaces.
+ */
+
+#include <artsflow.idl>
+#include <artsmidi.idl>
+#include <artsgui.idl>
+
+module Arts {
+
+// EXPERIMENTAL MIDI
+interface ObjectCache {
+	void put(object obj, string name);
+	object get(string name);
+};
+
+interface MidiReleaseHelper : SynthModule {
+	attribute SynthModule voice;
+	attribute string name;
+	attribute ObjectCache cache;
+
+	boolean terminate();
+	in audio stream done;
+};
+// END EXPERIMENTAL MIDI
+
+/**
+ * this interface currently has probably a problem - usually, if you are
+ * using such a module, you would expect that you can specify the filename
+ * with it - BUT, if you allow this, then any instrument definition file
+ * (.arts) and similar might overwrite every file the user can access, which
+ * might not be what you want, so I currently save it to a file in
+ * /tmp/mcop-<username>/capture.wav (which might be unlucky since the user
+ * might not have too much space there)
+ */
+
+interface Synth_CAPTURE_WAV : SynthModule {
+	default in audio stream left, right;
+};
+
+interface Synth_NIL : SynthModule {
+};
+
+interface Synth_DEBUG : SynthModule {
+	attribute string comment;
+	in audio stream invalue;
+};
+
+interface Synth_DATA : SynthModule {
+	attribute float value;
+	out audio stream outvalue;
+};
+
+interface Synth_ATAN_SATURATE : SynthModule {
+	attribute float inscale;
+	in audio stream invalue;
+	out audio stream outvalue;
+};
+
+interface Synth_BRICKWALL_LIMITER : SynthModule {
+	in audio stream invalue;
+	out audio stream outvalue;
+};
+
+interface Synth_AUTOPANNER : SynthModule {
+	in audio stream invalue, inlfo;
+	out audio stream outvalue1, outvalue2;
+};
+
+interface Synth_DELAY : SynthModule {
+	in audio stream invalue, time;
+	out audio stream outvalue;
+};
+
+interface Synth_CDELAY : SynthModule {
+	attribute float time;
+	in audio stream invalue;
+	out audio stream outvalue;
+};
+
+interface Synth_FM_SOURCE : SynthModule {
+	in audio stream frequency, modulator, modlevel;
+	out audio stream pos;
+};
+
+interface Synth_TREMOLO : SynthModule {
+	in audio stream invalue, inlfo;
+	out audio stream outvalue;
+};
+
+interface Synth_FX_CFLANGER : SynthModule {
+	attribute float mintime, maxtime;
+	in audio stream invalue, lfo;
+	out audio stream outvalue;
+};
+
+interface Synth_NOISE : SynthModule {
+	out audio stream outvalue;
+};
+
+interface Synth_WAVE_TRI : SynthModule {
+	in audio stream pos;
+	out audio stream outvalue;
+};
+
+interface Synth_WAVE_SQUARE : SynthModule {
+	in audio stream pos;
+	out audio stream outvalue;
+};
+
+interface Synth_WAVE_PULSE : SynthModule {
+	attribute float dutycycle;
+	in audio stream pos;
+	out audio stream outvalue;
+};
+
+interface Synth_WAVE_SOFTSAW : SynthModule {
+	in audio stream pos;
+	out audio stream outvalue;
+};
+
+interface Synth_ENVELOPE_ADSR : SynthModule {
+	in audio stream active,invalue,attack,decay,sustain,release;
+	out audio stream outvalue,done;
+};
+
+interface Synth_SHELVE_CUTOFF : SynthModule {
+	in audio stream invalue,frequency;
+	out audio stream outvalue;
+};
+
+interface Synth_XFADE : SynthModule {
+	in audio stream invalue1,invalue2,percentage;
+	out audio stream outvalue;
+};
+
+interface Synth_MIDI_TEST : SynthModule, MidiPort {
+	attribute string filename;
+};
+
+interface Synth_MIDI_DEBUG : SynthModule, MidiPort {
+};
+
+interface Synth_FREEVERB : StereoEffect {
+	attribute float roomsize, damp, wet, dry, width, mode;
+};
+
+interface FreeverbGuiFactory : GuiFactory {
+};
+
+
+interface Synth_STD_EQUALIZER : SynthModule {
+	attribute float low, mid, high, frequency, q;
+	in audio stream invalue;
+	out audio stream outvalue;
+};
+
+interface Synth_RC : SynthModule {
+	attribute float b, f;
+	in audio stream invalue;
+	out audio stream outvalue;
+};
+
+interface Synth_MOOG_VCF : SynthModule {
+	attribute float frequency, resonance;
+	in audio stream invalue;
+	out audio stream outvalue;
+};
+
+interface Synth_PSCALE : SynthModule {
+	attribute float top;
+	in audio stream invalue, pos;
+	out audio stream outvalue;
+};
+
+interface Synth_SEQUENCE : SynthModule {
+	attribute float speed;
+	attribute string seq;
+	out audio stream frequency, pos;
+};
+
+interface Synth_PITCH_SHIFT : SynthModule {
+	attribute float speed, frequency;
+	in audio stream invalue;
+	out audio stream outvalue;
+};
+
+/*----------------------------------------------------------------------------
+ * everything below this line is obsolete, but provided to help with porting
+ * old structures
+ */
+interface Interface_MIDI_NOTE : SynthModule {
+	out audio stream frequency,velocity,pressed;
+};
+
+interface Synth_STRUCT_KILL : SynthModule {
+	in audio stream ready;
+};
+
+};

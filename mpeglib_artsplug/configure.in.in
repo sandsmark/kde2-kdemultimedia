@@ -1,0 +1,53 @@
+
+
+MPEGLIB_ARTS_MAJOR_VERSION=0
+MPEGLIB_ARTS_MINOR_VERSION=3
+MPEGLIB_ARTS_MICRO_VERSION=0
+
+MPEGLIB_ARTS_VERSION=$MPEGLIB_ARTS_MAJOR_VERSION.$MPEGLIB_ARTS_MINOR_VERSION.$MPEGLIB_ARTS_MICRO_VERSION
+
+
+AC_SUBST(MPEGLIB_ARTS_MAJOR_VERSION)
+AC_SUBST(MPEGLIB_ARTS_MINOR_VERSION)
+AC_SUBST(MPEGLIB_ARTS_MICRO_VERSION)
+AC_SUBST(MPEGLIB_ARTS_VERSION)
+
+
+dnl build search PATH
+artsc_config_test_path=$prefix/bin:$exec_prefix/bin:$KDEDIR/bin:$PATH
+AC_PATH_PROG(kde_artsplug_compiles,artsc-config,no,$artsc_config_test_path)
+
+dnl if we found it here set variable
+if test x$kde_artsplug_compiles != xno; then
+   ARTSC_CONFIG=$kde_artsplug_compiles;
+   kde_artsplug_compiles=yes
+fi
+
+dnl this is needed for a standalone mpeglib
+dnl it should compile without KDE installed
+dnl but if we find arts we need the include
+dnl path for it.
+
+if test x$kde_artsplug_compiles = xyes; then
+   ARTSC_INCLUDE=`${ARTSC_CONFIG} --cflags`
+   AC_MSG_RESULT([arts includes... $ARTSC_INCLUDE])
+   AC_SUBST(ARTSC_INCLUDE)
+   ARTSC_LIBS=`${ARTSC_CONFIG} --libs`
+   AC_MSG_RESULT([arts libraries... $ARTSC_LIBS])
+   AC_SUBST(ARTSC_LIBS)	
+   AC_SUBST(LIBDL)
+fi
+
+if test x$kde_mpeglib_compiles = xno; then
+  AC_MSG_RESULT([** mpeglib disabled we disable artsplug **])
+  kde_artsplug_compiles=no;
+fi
+
+if test x$kde_artsplug_compiles = xno; then
+  AC_MSG_RESULT([** DO NOT COMPILE mpeglib_artsplug **])
+  DO_NOT_COMPILE="$DO_NOT_COMPILE mpeglib_artsplug"
+fi
+
+
+
+

@@ -1,0 +1,16 @@
+?package(artsbuilder):\
+	needs=x11\
+	section=Apps/Sound\
+	hints="KDE"\
+	kderemove="y"\
+	title="aRts control"\
+	command=/usr/bin/artscontrol
+
+?package(artsbuilder):\
+	needs=x11\
+	section=Apps/Sound\
+	hints="KDE"\
+	kderemove="y"\
+	title="aRts Builder"\
+	command=/usr/bin/artsbuilder
+

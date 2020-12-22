@@ -1,0 +1,17 @@
+AC_MSG_CHECKING(if kmid would compile)
+CPPFLAGS="$CPPFLAGS $KDE_INCLUDES"
+AC_CACHE_VAL(kde_kmid_compiles,
+[
+AC_TRY_COMPILE([
+#include <libkmid/libkmid.h>
+],
+[
+],
+  kde_mid_compiles=yes,
+kde_mid_compiles=no)
+])
+AC_MSG_RESULT($kde_mid_compiles)
+if test $kde_mid_compiles = no; then
+  DO_NOT_COMPILE="$DO_NOT_COMPILE kmid"
+fi
+

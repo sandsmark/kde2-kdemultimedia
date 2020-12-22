@@ -1,0 +1,12 @@
+usr/lib/libmpeg.la
+usr/lib/libyafcore.la
+usr/lib/libyafxplayer.la
+usr/lib/libmpeg-0.3.0.so.*
+usr/lib/libyafcore.so.*
+usr/lib/libyafxplayer.so.*
+usr/bin/yaf-splay
+usr/bin/yaf-mpgplay
+usr/bin/yaf-tplay
+usr/bin/yaf-vorbis
+usr/bin/yaf-yuv
+usr/bin/yaf-cdda

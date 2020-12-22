@@ -1,0 +1,548 @@
+--- aktion-2.2.0-final.orig/Makefile.am
++++ aktion-2.2.0-final/Makefile.am
+@@ -21,8 +21,8 @@
+ 	@echo "****************************************************"
+ 	@echo ""
+ 
+-$(top_srcdir)/acinclude.m4: $(top_srcdir)/admin/acinclude.m4.in $(top_srcdir)/admin/libtool.m4.in $(top_srcdir)/kmidi/acinclude.m4.in
+-	@cd $(top_srcdir) && cat admin/acinclude.m4.in admin/libtool.m4.in kmidi/acinclude.m4.in > acinclude.m4
++$(top_srcdir)/acinclude.m4: $(top_srcdir)/admin/acinclude.m4.in $(top_srcdir)/admin/libtool.m4.in
++	@cd $(top_srcdir) && cat admin/acinclude.m4.in admin/libtool.m4.in > acinclude.m4
+ 
+ MAINTAINERCLEANFILES = subdirs configure.in acinclude.m4 SUBDIRS
+ 
+--- aktion-2.2.0-final.orig/debian/changelog
++++ aktion-2.2.0-final/debian/changelog
+@@ -1,49 +1,42 @@
+-kdemultimedia (4:2.2.0-final-1) unstable; urgency=low
+-  
++aktion (4:2.2.0-final-1) unstable; urgency=low
++ 
+   * New upstream version 2.2
+-  * Fix build issues (Closes: #107281)
+  
+  -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 30 Jul 2001 00:01:00 -0700
+ 
+-kdemultimedia (4:2.2.0-0.2beta1-1) unstable; urgency=low
+- 
+-  * sync with upstream
++aktion (4:2.2.0-0beta1-4) unstable; urgency=low
+  
+- -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 25 Jul 2001 03:51:00 -0700
+-
+-kdemultimedia (4:2.2.0-0.1beta1-1) unstable; urgency=low
+- 
+-  * sync with upstream
+-  * More Build-Depends and Depends work
+-  * More alpha build fixes
++  * Sync with upstream
++  * gcc3 fixes
++  * should fix this too (Closes: #105090)
+  
+- -- Ivan E. Moore II <rkrusty@debian.org>  Wed, 18 Jul 2001 00:24:00 -0700
++ -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 27 Jul 2001 01:18:00 -0700
+ 
+-kdemultimedia (4:2.2.0-0beta1-3) unstable; urgency=low
++aktion (4:2.2.0-0beta1-3) unstable; urgency=low
+  
+-  * sync with upstream
++  * Sync with upstream
+   * More alpha build fixes
+  
+- -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 07 Jul 2001 03:40:00 -0700
++ -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 07 Jul 2001 03:46:00 -0700
+ 
+-kdemultimedia (4:2.2.0-0beta1-2) unstable; urgency=low
++aktion (4:2.2.0-0beta1-2) unstable; urgency=low
+  
+-  * sync with upstream
++  * Sync with upstream
+   * Autobuild for alpha
+  
+- -- Ivan E. Moore II <rkrusty@debian.org>  Tue, 03 Jul 2001 02:25:00 -0700
++ -- Ivan E. Moore II <rkrusty@debian.org>  Tue, 03 Jul 2001 02:39:00 -0700
+ 
+-kdemultimedia (4:2.2.0-0beta1-1) unstable; urgency=low
++aktion (4:2.2.0-0beta1-1) unstable; urgency=low
+  
+-  * sync with upstream
+-  * Fix seg (Closes: #102647)
++  * Sync with upstream
++  * Fix for mips* builds
+  
+- -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 30 Jun 2001 19:15:00 -0700
++ -- Ivan E. Moore II <rkrusty@debian.org>  Sat, 30 Jun 2001 22:34:00 -0700
+ 
+-kdemultimedia (4:2.2-cvs20010622-1) unstable; urgency=low
++aktion (4:2.2-cvs20010622-1) unstable; urgency=low
+  
+   * New upstream pull
+-  * 2.2 beta1
++  * 2.2 beta 1
+   * Adding: Enhances: tags
+   * Adding in notation in kscd README.Debian about the fact that CDDB is
+     not supported due to licensing issues. (Closes: #96435)
+@@ -60,9 +53,8 @@
+     default Xaw, Ncurses, and Slang.
+   * Fixes these problems: 
+         noatun segfaults (Closes: #88585)
+-  * Fix formatting (Closes: #99945)
+ 
+- -- Ivan E. Moore II <rkrusty@debian.org>  Fri, 22 Jun 2001 06:30:00 -0700
++ -- Ivan E. Moore II <rkrusty@debian.org>  Mon, 25 Jun 2001 14:34:00 -0700
+ 
+ kdemultimedia (4:2.1.1-2) unstable; urgency=low
+  
+--- aktion-2.2.0-final.orig/debian/control
++++ aktion-2.2.0-final/debian/control
+@@ -1,108 +1,16 @@
+-Source: kdemultimedia
+-Build-Depends: automake, autoconf2.13, debhelper (>> 3.0.0), kdelibs-dev (>= 4:2.2.0-final-1), libarts-dev (>= 4:2.2.0-final-1), libkmid-dev (>= 4:2.2.0-final-1), libtool, libcdaudio0-dev, libcdparanoia0-dev, libogg-dev, libvorbis-dev, libncurses5-dev | libncurses-dev, slang1-dev, libxaw7-dev | libxaw-dev, g++-3.0 [alpha], gcc-3.0 [alpha]
+-Build-Conflicts: noatun (<< 4:2.2-0), libmpeglib0
+-Section: sound
++Source: aktion
++Build-Depends: automake, autoconf2.13, debhelper (>> 3.0.0), kdelibs-dev (>= 4:2.2.0-final-1), libarts-dev (>= 4:2.2.0-final-1), libkmid-dev (>= 4:2.2.0-final-1), libtool, g++-3.0 [alpha], gcc-3.0 [alpha]
++Section: contrib/graphics
+ Priority: optional
+ Maintainer: Ivan E. Moore II <rkrusty@debian.org>
+ Standards-Version: 3.5.5
+ 
+-Package: kdemultimedia-dev
++Package: aktion
+ Architecture: any
+-Section: devel
+-Replaces: arts (<< 4:2.0-final-6), kmid (<< 4:2.0-final-6), libmpeglib-dev
+-Depends: artsbuilder (= ${Source-Version}), noatun (= ${Source-Version}), mpeglib (= ${Source-Version}), kdelibs-dev, libcdparanoia0-dev, libcdaudio0-dev, libogg-dev, libvorbis-dev
+-Conflicts: arts (<< 4:2.0-final-6), libmpeglib-dev
+-Description: KDE multimedia libraries (development files)
+- KDE multimedia development libraries for the kdemultimedia package 
+-
+-Package: artsbuilder
+-Architecture: any
+-Section: sound
+-Replaces: kdemultimedia, kmidi (<< 4:2.0-final-6), arts
+-Depends: ${shlibs:Depends}, mpeglib (= ${Source-Version})
+-Recommends: kdebase-libs
+-Enhances: kdebase
+-Conflicts: kmidi (<< 4:2.0-final-6), arts
+-Description: Arts synthesizer designer
+- This is the analog real-time synthesizer graphical design tool.
+-
+-Package: noatun
+-Architecture: any
+-Section: sound
+-Depends: ${shlibs:Depends}, mpeglib (= ${Source-Version})
+-Recommends: kdebase-libs
+-Enhances: kdebase
+-Recommends: libarts-mpeglib
+-Suggests: noatun-plugins
+-Provides: mp3-decoder
+-Description: Media player (for video and audio)
+- Media player (for video and audio) for KDE
+-
+-Package: kmid
+-Architecture: any
+-Section: sound
+-Replaces: kdemultimedia
+-Depends: ${shlibs:Depends}
+-Recommends: kdebase-libs
+-Enhances: kdebase
+-Description: midi/karaoke player for KDE
+- midi/karaoke player for KDE
+-
+-Package: kmidi
+-Architecture: any
+-Section: sound
+-Replaces: kdemultimedia
+-Depends: ${shlibs:Depends}
+-Recommends: kdebase-libs
+-Provides: timidity
+-Suggests: timidity-patches
+-Enhances: kdebase
+-Description: midi-to-wav player/converter for KDE
+- midi-to-wav player/converter for KDE
+-
+-Package: kmix
+-Architecture: any
+-Section: sound
+-Replaces: kdemultimedia
+-Depends: ${shlibs:Depends}, procps
+-Recommends: kdebase-libs
+-Enhances: kdebase
+-Description: KDE based mixer app
+- This is a KDE based mixer app
+-
+-Package: mpeglib
+-Architecture: any
+-Section: libs
+-Replaces: arts (<= 4:2.0.1-1), libmpeglib0
+-Depends: ${shlibs:Depends}
+-Conflicts: arts (<= 4:2.0.1-1), libmpeglib0
+-Recommends: libarts-mpeglib
+-Provides: mp3-decoder
+-Description: mp3 and mpeg I video/audio library for linux
+- mpeglib is a mp3 and mpeg I video/audio library for linux
+- .
+-   mpeg I audio player (layer I,II,III (mp3))
+-   mpeg I video player
+-   mpeg I system layer player
+-   wav player
+-
+-Package: libarts-mpeglib
+-Architecture: any
+-Section: libs
+-Replaces: arts (<= 4:2.0.1-1)
+-Depends: ${shlibs:Depends}, mpeglib
+-Conflicts: arts (<= 4:2.0.1-1)
+-Description: mpeglib is a mp3 and mpeg I video/audio library (Arts plugin)
+- mpeglib is a mp3 and mpeg I video/audio library for linux
+- .
+- This is the arts (KDE Sound daemon) plugin
+- 
+-Package: kscd
+-Architecture: any
+-Section: sound
++Section: contrib/graphics
+ Replaces: kdemultimedia
+-Depends: ${shlibs:Depends}, cddb
++Depends: ${shlibs:Depends}, xanim
+ Recommends: kdebase-libs
+-Enhances: kdebase
+-Description: KDE based cd player
+- This is a KDE based cd player
++Enhances: xanim, kdebase
++Description: KDE frontend to xanim
++ This is a frontend to xanim written for KDE/Qt
+--- aktion-2.2.0-final.orig/debian/rules
++++ aktion-2.2.0-final/debian/rules
+@@ -5,7 +5,7 @@
+  
+ # This is the debhelper compatability version to use.
+ export DH_COMPAT=3
+-tmp = $(shell pwd)/debian/kdemultimedia-dev
++tmp = $(shell pwd)/debian/aktion
+ ARCH = $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+ ifeq ($(ARCH),alpha)
+   COMPILER_FLAGS=CXX=g++-3.0 CC=gcc-3.0 CFLAGS=-mieee CXXFLAGS=-mieee
+@@ -17,6 +17,9 @@
+ else
+   XINERAMA=--with-xinerama
+ endif
++ifeq ($(ARCH),i386)
++  OBJPRELINK=--enable-objprelink
++endif
+ 
+ build: build-stamp
+ 
+@@ -30,14 +33,8 @@
+ 	if test ! -f configure; then \
+ 	  $(MAKE) -f admin/Makefile.common ;\
+ 	fi 
+-	-mv subdirs subdirs.tmp
+-	-cat subdirs.tmp | grep -v aktion > subdirs
+-	-rm -f subdirs.tmp
+ 	$(COMPILER_FLAGS) \
+-	./configure $(configkde) --disable-esdtest --disable-alsatest \
+-		--enable-interface=ncurses,slang,xaw --disable-glibtest \
+-		--libdir=$(kde_libdir) $(XINERAMA) \
+-		--includedir=$(kde_includedir)
++	./configure $(configkde) $(XINERAMA) $(OBJPRELINK)
+ 		
+ 	$(MAKE)
+ 
+@@ -64,48 +61,25 @@
+ 	dh_testdir
+ 	dh_clean -k
+ 	dh_installdirs -a
+-	$(MAKE) DESTDIR=$(tmp)/ install 
+-	-rm -rf $(tmp)/usr/share/apps/kscd/cddb/
+-	-rm -rf `find $(tmp) -print | grep aktion`
+-	cp debian/*.override $(tmp)/usr/share/lintian/overrides/
+-	for i in `ls $(tmp)/usr/share/lintian/overrides/`; do \
+-		mv $(tmp)/usr/share/lintian/overrides/$$i $(tmp)/usr/share/lintian/overrides/`echo $$i | sed -e 's#.override##'`; \
+-	done
+-	echo "[CDDB]" > $(tmp)/etc/kde2/kscdrc
+-	echo "LocalBaseDir=/var/lib/cddb/" >> $(tmp)/etc/kde2/kscdrc
+-	echo "[General]" >> $(tmp)/etc/kde2/kscdrc
+-	echo "UnixMailCommand=/usr/bin/mail -s \"%s\"" >> $(tmp)/etc/kde2/kscdrc 
+-	echo "DOCKING=1" >> $(tmp)/etc/kde2/kscdrc
++	$(MAKE) DESTDIR=$(tmp)/ install
++	cp debian/aktion.override debian/aktion/usr/share/lintian/overrides/aktion
+ 	for i in `find debian/ -type l -name "common"`; do \
+ 		rm $$i ;\
+ 		ln -s ../common $$i ;\
+ 	done
+ 	dh_undocumented
+ 	dh_installman -a
+-	dh_movefiles -a --sourcedir=debian/kdemultimedia-dev
+-	-mv debian/kmidi/usr/share/applnk/Multimedia/timidity.desktop \
+-		debian/kmidi/usr/share/applnk/Multimedia/ktimidity.desktop
+-	-mv debian/kmidi/etc/kde2/kmidi/timidity.cfg \
+-		debian/kmidi/etc/kde2/ktimidity.cfg
+ 	dh_installdocs -a
+ 	dh_installmenu -a
+ 	dh_installmime -a
+-	dh_installchangelogs -pkdemultimedia-dev
+-	dh_installchangelogs -partsbuilder
+-	dh_installchangelogs -pkmid kmid/ChangeLog
+-	dh_installchangelogs -pkmidi kmidi/ChangeLog
+-	dh_installchangelogs -pkmix
+-	dh_installchangelogs -pnoatun
+-	dh_installchangelogs -pkscd kscd/ChangeLog
+-	dh_installchangelogs -pmpeglib mpeglib/CHANGES
+-	dh_installchangelogs -plibarts-mpeglib
++	dh_installchangelogs -a aktion/ChangeLog
+ 	dh_strip -a
+ 	dh_link -a
+ 	dh_compress -a -X.docbook
+ 	dh_fixperms -a
+-	dh_makeshlibs -a -V
++	dh_makeshlibs -a
+ 	dh_installdeb -a
+-	dh_shlibdeps -a -l`pwd`/debian/noatun/usr/lib:`pwd`/debian/artsbuilder/usr/lib:`pwd`/debian/kmid/usr/lib:`pwd`/debian/libarts-mpeglib/usr/lib:`pwd`/debian/mpeglib/usr/lib
++	dh_shlibdeps -a 
+ 	dh_gencontrol -a
+ 	dh_md5sums -a
+ 	dh_builddeb -a
+--- aktion-2.2.0-final.orig/admin/config.guess
++++ aktion-2.2.0-final/admin/config.guess
+@@ -3,7 +3,7 @@
+ #   Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001
+ #   Free Software Foundation, Inc.
+ 
+-timestamp='2001-03-30'
++timestamp='2001-04-20'
+ 
+ # This file is free software; you can redistribute it and/or modify it
+ # under the terms of the GNU General Public License as published by
+@@ -412,6 +412,9 @@
+ 	rm -f $dummy.c $dummy
+ 	echo mips-mips-riscos${UNAME_RELEASE}
+ 	exit 0 ;;
++    Motorola:PowerMAX_OS:*:*)
++	echo powerpc-motorola-powermax
++	exit 0 ;;
+     Night_Hawk:Power_UNIX:*:*)
+ 	echo powerpc-harris-powerunix
+ 	exit 0 ;;
+@@ -459,7 +462,7 @@
+     ????????:AIX?:[12].1:2)   # AIX 2.2.1 or AIX 2.1.1 is RT/PC AIX.
+ 	echo romp-ibm-aix      # uname -m gives an 8 hex-code CPU id
+ 	exit 0 ;;              # Note that: echo "'`uname -s`'" gives 'AIX '
+-    i?86:AIX:*:*)
++    i*86:AIX:*:*)
+ 	echo i386-ibm-aix
+ 	exit 0 ;;
+     ia64:AIX:*:*)
+@@ -639,7 +642,7 @@
+     hp8??:OSF1:*:*)
+ 	echo hppa1.0-hp-osf
+ 	exit 0 ;;
+-    i?86:OSF1:*:*)
++    i*86:OSF1:*:*)
+ 	if [ -x /usr/sbin/sysversion ] ; then
+ 	    echo ${UNAME_MACHINE}-unknown-osf1mk
+ 	else
+@@ -705,7 +708,7 @@
+     hp300:OpenBSD:*:*)
+ 	echo m68k-unknown-openbsd${UNAME_RELEASE}
+ 	exit 0 ;;
+-    i?86:BSD/386:*:* | i?86:BSD/OS:*:* | *:Ascend\ Embedded/OS:*:*)
++    i*86:BSD/386:*:* | i*86:BSD/OS:*:* | *:Ascend\ Embedded/OS:*:*)
+ 	echo ${UNAME_MACHINE}-pc-bsdi${UNAME_RELEASE}
+ 	exit 0 ;;
+     sparc*:BSD/OS:*:*)
+@@ -876,7 +879,7 @@
+     x86_64:Linux:*:*)
+ 	echo x86_64-unknown-linux-gnu
+ 	exit 0 ;;
+-    i?86:Linux:*:*)
++    i*86:Linux:*:*)
+ 	# The BFD linker knows what the default object file format is, so
+ 	# first see if it will tell us. cd to the root directory to prevent
+ 	# problems with other programs or directories called `ld' in the path.
+@@ -887,14 +890,14 @@
+ 				    s/ .*//
+ 				    p'`
+         case "$ld_supported_emulations" in
+-	  i?86linux)
++	  i*86linux)
+ 		echo "${UNAME_MACHINE}-pc-linux-gnuaout"
+ 		exit 0
+ 		;;
+-	  elf_i?86)
++	  elf_i*86)
+ 		TENTATIVE="${UNAME_MACHINE}-pc-linux-gnu"
+ 		;;
+-	  i?86coff)
++	  i*86coff)
+ 		echo "${UNAME_MACHINE}-pc-linux-gnucoff"
+ 		exit 0
+ 		;;
+@@ -906,7 +909,7 @@
+ 	# that means it is gnuoldld.
+ 	test -z "$ld_supported_emulations" && echo "${UNAME_MACHINE}-pc-linux-gnuoldld" && exit 0
+ 	case "${UNAME_MACHINE}" in
+-	i?86)
++	i*86)
+ 	  VENDOR=pc;
+ 	  ;;
+ 	*)
+@@ -944,10 +947,10 @@
+ 	;;
+ # ptx 4.0 does uname -s correctly, with DYNIX/ptx in there.  earlier versions
+ # are messed up and put the nodename in both sysname and nodename.
+-    i?86:DYNIX/ptx:4*:*)
++    i*86:DYNIX/ptx:4*:*)
+ 	echo i386-sequent-sysv4
+ 	exit 0 ;;
+-    i?86:UNIX_SV:4.2MP:2.*)
++    i*86:UNIX_SV:4.2MP:2.*)
+         # Unixware is an offshoot of SVR4, but it has its own version
+         # number series starting with 2...
+         # I am not positive that other SVR4 systems won't match this,
+@@ -955,7 +958,7 @@
+         # Use sysv4.2uw... so that sysv4* matches it.
+ 	echo ${UNAME_MACHINE}-pc-sysv4.2uw${UNAME_VERSION}
+ 	exit 0 ;;
+-    i?86:*:4.*:* | i?86:SYSTEM_V:4.*:*)
++    i*86:*:4.*:* | i*86:SYSTEM_V:4.*:*)
+ 	UNAME_REL=`echo ${UNAME_RELEASE} | sed 's/\/MP$//'`
+ 	if grep Novell /usr/include/link.h >/dev/null 2>/dev/null; then
+ 		echo ${UNAME_MACHINE}-univel-sysv${UNAME_REL}
+@@ -963,7 +966,7 @@
+ 		echo ${UNAME_MACHINE}-pc-sysv${UNAME_REL}
+ 	fi
+ 	exit 0 ;;
+-    i?86:*:5:7*)
++    i*86:*:5:7*)
+         # Fixed at (any) Pentium or better
+         UNAME_MACHINE=i586
+         if [ ${UNAME_SYSTEM} = "UnixWare" ] ; then
+@@ -972,7 +975,7 @@
+ 	    echo ${UNAME_MACHINE}-pc-sysv${UNAME_RELEASE}
+ 	fi
+ 	exit 0 ;;
+-    i?86:*:3.2:*)
++    i*86:*:3.2:*)
+ 	if test -f /usr/options/cb.name; then
+ 		UNAME_REL=`sed -n 's/.*Version //p' </usr/options/cb.name`
+ 		echo ${UNAME_MACHINE}-pc-isc$UNAME_REL
+@@ -990,7 +993,7 @@
+ 		echo ${UNAME_MACHINE}-pc-sysv32
+ 	fi
+ 	exit 0 ;;
+-    i?86:*DOS:*:*)
++    i*86:*DOS:*:*)
+ 	echo ${UNAME_MACHINE}-pc-msdosdjgpp
+ 	exit 0 ;;
+     pc:*:*:*)
+@@ -1035,7 +1038,7 @@
+     mc68030:UNIX_System_V:4.*:*)
+ 	echo m68k-atari-sysv4
+ 	exit 0 ;;
+-    i?86:LynxOS:2.*:* | i?86:LynxOS:3.[01]*:* | i?86:LynxOS:4.0*:*)
++    i*86:LynxOS:2.*:* | i*86:LynxOS:3.[01]*:* | i*86:LynxOS:4.0*:*)
+ 	echo i386-unknown-lynxos${UNAME_RELEASE}
+ 	exit 0 ;;
+     TSUNAMI:LynxOS:2.*:*)
+@@ -1146,7 +1149,7 @@
+ 	fi
+ 	echo ${UNAME_MACHINE}-unknown-plan9
+ 	exit 0 ;;
+-    i?86:OS/2:*:*)
++    i*86:OS/2:*:*)
+ 	# If we were able to find `uname', then EMX Unix compatibility
+ 	# is probably installed.
+ 	echo ${UNAME_MACHINE}-pc-os2-emx
+--- aktion-2.2.0-final.orig/admin/config.sub
++++ aktion-2.2.0-final/admin/config.sub
+@@ -3,7 +3,7 @@
+ #   Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001
+ #   Free Software Foundation, Inc.
+ 
+-timestamp='2001-03-30'
++timestamp='2001-04-20'
+ 
+ # This file is (in principle) common to ALL GNU software.
+ # The presence of a machine in this file suggests that SOME GNU software
+@@ -231,7 +231,8 @@
+ 		| mips64orion | mips64orionel | mipstx39 | mipstx39el \
+ 		| mips64vr4300 | mips64vr4300el | mips64vr4100 | mips64vr4100el \
+ 		| mips64vr5000 | miprs64vr5000el | mcore | s390 | s390x \
+-		| sparc | sparclet | sparclite | sparc64 | sparcv9 | v850 | c4x \
++		| sparc | sparclet | sparclite | sparc64 | sparcv9 | sparcv9b \
++		| v850 | c4x \
+ 		| thumb | d10v | d30v | fr30 | avr | openrisc | tic80 \
+ 		| pj | pjl | h8500)
+ 		basic_machine=$basic_machine-unknown
+@@ -247,7 +248,7 @@
+ 	# We use `pc' rather than `unknown'
+ 	# because (1) that's what they normally are, and
+ 	# (2) the word "unknown" tends to confuse beginning users.
+-	i[234567]86 | x86_64)
++	i*86 | x86_64)
+ 	  basic_machine=$basic_machine-pc
+ 	  ;;
+ 	# Object if more than one company name word.
+@@ -257,7 +258,7 @@
+ 		;;
+ 	# Recognize the basic CPU types with company name.
+ 	# FIXME: clean up the formatting here.
+-	vax-* | tahoe-* | i[234567]86-* | i860-* | ia64-* | m32r-* | m68k-* | m68000-* \
++	vax-* | tahoe-* | i*86-* | i860-* | ia64-* | m32r-* | m68k-* | m68000-* \
+ 	      | m88k-* | sparc-* | ns32k-* | fx80-* | arc-* | c[123]* \
+ 	      | arm-*  | armbe-* | armle-* | armv*-* | strongarm-* | xscale-* \
+ 	      | mips-* | pyramid-* | tron-* | a29k-* | romp-* | rs6000-* \
+@@ -271,7 +272,8 @@
+ 	      | we32k-* | cydra-* | ns16k-* | pn-* | np1-* | xps100-* \
+ 	      | clipper-* | orion-* \
+ 	      | sparclite-* | pdp10-* | pdp11-* | sh-* | powerpc-* | powerpcle-* \
+-	      | sparc64-* | sparcv9-* | sparc86x-* | mips16-* | mips64-* | mipsel-* \
++	      | sparc64-* | sparcv9-* | sparcv9b-* | sparc86x-* \
++	      | mips16-* | mips64-* | mipsel-* \
+ 	      | mips64el-* | mips64orion-* | mips64orionel-* \
+ 	      | mips64vr4100-* | mips64vr4100el-* | mips64vr4300-* | mips64vr4300el-* \
+ 	      | mipstx39-* | mipstx39el-* | mcore-* \
+@@ -506,19 +508,19 @@
+ 		basic_machine=i370-ibm
+ 		;;
+ # I'm not sure what "Sysv32" means.  Should this be sysv3.2?
+-	i[34567]86v32)
++	i*86v32)
+ 		basic_machine=`echo $1 | sed -e 's/86.*/86-pc/'`
+ 		os=-sysv32
+ 		;;
+-	i[34567]86v4*)
++	i*86v4*)
+ 		basic_machine=`echo $1 | sed -e 's/86.*/86-pc/'`
+ 		os=-sysv4
+ 		;;
+-	i[34567]86v)
++	i*86v)
+ 		basic_machine=`echo $1 | sed -e 's/86.*/86-pc/'`
+ 		os=-sysv
+ 		;;
+-	i[34567]86sol2)
++	i*86sol2)
+ 		basic_machine=`echo $1 | sed -e 's/86.*/86-pc/'`
+ 		os=-solaris2
+ 		;;
+@@ -935,7 +937,7 @@
+ 	sh3 | sh4)
+ 		basic_machine=sh-unknown
+ 		;;
+-	sparc | sparcv9)
++	sparc | sparcv9 | sparcv9b)
+ 		basic_machine=sparc-sun
+ 		;;
+         cydra)
+@@ -1025,7 +1027,7 @@
+ 		;;
+ 	-qnx*)
+ 		case $basic_machine in
+-		    x86-* | i[34567]86-*)
++		    x86-* | i*86-*)
+ 			;;
+ 		    *)
+ 			os=-nto$os

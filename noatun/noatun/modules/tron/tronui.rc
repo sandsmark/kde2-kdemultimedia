@@ -1,0 +1,28 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="noatuntron" version="3">
+<ActionProperties>
+<!--
+	<Action name="options_shuffle" icon="shuffle"/>
+-->
+	<Action name="edit_add" icon="edit_add"/>
+	<Action name="edit_remove" icon="edit_remove"/>
+	<Action name="edit_adddirectory" icon="folder_sound"/>
+</ActionProperties>
+<MenuBar>
+	<Menu name="edit">
+		<Action name="edit_add"/>
+		<Action name="edit_remove"/>
+		<Action name="edit_adddirectory"/>
+	</Menu>
+	<Menu name="settings">
+		<Action name="options_shuffle"/>
+		<Action name="options_volume"/>
+		<Action name="configuretoolbars"/>
+	</Menu>
+</MenuBar>
+<ToolBar name="mainToolBar">
+	<Action name="edit_add"/>
+	<Action name="edit_remove"/>
+	<Action name="edit_adddirectory"/>
+</ToolBar>
+</kpartgui>

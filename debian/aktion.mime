@@ -1,0 +1,4 @@
+video/mpeg; aktion   -caption "aKtion!" %s;test=test "$DISPLAY" != ""; priority=5
+video/x-msvideo; aktion   -caption "aKtion!" %s;test=test "$DISPLAY" != ""; priority=5
+video/quicktime; aktion   -caption "aKtion!" %s;test=test "$DISPLAY" != ""; priority=5
+video/x-flic; aktion   -caption "aKtion!" %s;test=test "$DISPLAY" != ""; priority=5

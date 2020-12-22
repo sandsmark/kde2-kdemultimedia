@@ -1,0 +1,1368 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kmidi;">
+<!ENTITY timidity "<application>TiMidity</application>">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title>The &kmidi; Handbook</title>
+<authorgroup>
+<author>
+<firstname>Bernd Johannes</firstname>
+<surname>Wuebben</surname>
+<affiliation>
+<address><email>wuebben@kde.org</email></address>
+</affiliation>
+</author>
+<author>
+<firstname>Greg</firstname>
+<surname>Lee</surname>
+<affiliation>
+<address><email>lee@hawaii.edu</email></address>
+</affiliation>
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+    
+<copyright>
+<year>1999</year>
+<year>2000</year>
+<holder>Greg Lee</holder>
+</copyright>
+   
+<date>2000-12-16</date>
+<releaseinfo>1.03.00</releaseinfo>
+<abstract>
+<para>
+&kmidi; plays midi files using instrument patches. It does in software
+what a soundcard like the GUS (Gravis UltraSound) or Sound Blaster AWE
+does in hardware.
+</para>
+
+</abstract>
+<keywordset>
+<keyword>KMidi</keyword>
+<keyword>Midi</keyword>
+<keyword>Player</keyword>
+<keyword>Timidity</keyword>
+<keyword>Midi</keyword>
+<keyword>to</keyword>
+<keyword>Wav</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>
+&kmidi; plays midi files using instrument patches. It does in software
+what a soundcard like the <acronym>GUS</acronym>gus> (Gravis UltraSound)
+or Sound Blaster AWE does in hardware. So, the only hardware you need is
+a simple soundcard or chip. Even if you have a <acronym>GUS</acronym> or
+AWE, you might still like to try &kmidi;, since it sounds pretty good.
+</para>
+
+<para>
+And it has the advantage that, if you'd like it to sound better, you can
+just roll up your sleeves and rewrite it, because of course you get the
+source code free.
+</para>
+
+<para>
+It does, however, need some <acronym>CPU</acronym> time. I find that
+starting up new windows or sometimes just scrolling my screen causes
+dropouts in the music. Also, you'll want to get yourself some patchsets
+(see below). They're too bulky (10-12 megs) to include as part of the
+regular &kde; distribution, so I've include only 5 patches as
+examples. &kmidi; can handle 257 banks of 128 instruments each.
+</para>
+
+<para>
+&kde; is based on Tuukka Toivonen's wonderful program
+<application>TiMidity</application>, which does most of the
+work. &kmidi; is a <acronym>GUI</acronym> front end for
+<application>TiMidity</application>, and
+<application>TiMidity</application> itself, with other alternative user
+interfaces, is included in the source distribution of &kmidi;. Thanks,
+Tuukka!
+</para>
+
+<para>
+kmidi; supports at the moment (Version 1.3) the following platforms:
+</para>
+
+<itemizedlist>
+<listitem>
+<para>&Linux;</para>
+</listitem>
+<listitem>
+<para>FreeBSD</para>
+</listitem>
+<listitem>
+<para>DEC OSF/1 </para>
+</listitem>
+<listitem>
+<para>&HP-UX;</para>
+</listitem>
+<listitem>
+<para>SunOS</para>
+</listitem>
+<listitem>
+<para>Sun &Solaris;</para>
+</listitem>
+</itemizedlist>
+
+<para>
+Ports to other platforms should be easy. Please contact me if you ported
+&kmidi; to another platform.
+</para>
+
+<para>
+For details about usage that may not be  covered in this manual, see the
+<command>timidity</command> man page.
+</para>
+
+<para>
+Remember midi files are typically around 50k or less and are therefore
+so easily downloaded that you will never run out of great midi's to
+play.
+</para>
+
+<para>
+Have fun with &kmidi;!
+</para>
+
+<para>
+Bernd Johannes Wuebben <email>wuebben@kde.org</email>
+</para>
+
+</chapter>
+
+<chapter id="usage">
+<title>Usage </title>
+
+<sect1 id="getting-started">
+<title>Getting Started </title>
+
+<para>
+If you haven't used &kmidi; before, you'll see the name of one of the
+example midi files I included in the black window. Click the play button
+to play it.  Move the mouse pointer around from button to button to get
+a brief tooltip description of what each button does when clicked on.
+</para>
+
+<para>
+Click on the <guiicon>KMidi</guiicon> logo at the upper left to make the
+bottom panel visible. There you'll see a black window, the
+<interface>channel meter</interface>, which shows a bar graph of notes
+being played on the 16 midi channels. To its left is a patchset selector
+and a song selector. Click on the song selector to see a list of the
+other example midi files I included with the &kmidi; distribution. Click
+on another, if you like, to play it.
+</para>
+
+<para>
+Click on the <guiicon>Info</guiicon> button to see information about the
+midi file you're playing and <quote>Karaoke</quote> lyrics (if the midi
+file has any).  </para>
+
+<para>
+Click the <guiicon>playlist</guiicon> button to look around your
+filesystem for midi files and compose your own list of files to
+play. Unless you click off the filter button, only midi files will be
+shown (regardless of whether they have a <literal
+role="extension">.mid</literal> or <literal
+role="extension">.kar</literal> suffix). Double click a filename on the
+left part of the screen to add the file to your playlist (shown on the
+right).
+</para>
+
+<para>
+Don't be surprised or chagrined if some midi files produce little or no
+sound. &kmidi; as distributed has a pitifully small number of instrument
+patches.  Sorry about that. Please see the section of this document on
+how to obtain patchsets on the net.
+</para>
+
+</sect1>
+
+<sect1 id="playlists">
+<title>Playlists</title>
+
+<para>
+Click on the <guiicon>eject</guiicon> button to open the playlist
+manager. At the left you'll see the content of the directory you were in
+the last time you edited your playlist. At the right you see your
+current playlist. Select a midi file on the left to append to the
+playlist by double clicking on it. Or single click, then click on
+<guibutton>Add</guibutton>.
+</para>
+
+<para>
+The only files shown on the left are midi files. Compressed midi files
+will not be recognized, unfortunately, so if you've used, say,
+<command>gzip</command> to compress the files, you'll want to click off
+the <guibutton>Filter</guibutton> button at the bottom. Then all files
+become visible. &kmidi; does not decide whether a file is a midi file or
+not by looking at the name; instead, it reads a bit of the file to see
+whether it appears to be a midi file. So there's no need to name your
+midi files with a <literal role="extension">.mid</literal> suffix.
+</para>
+
+<para>
+Toward the bottom of the screen are your current playlists. When you
+first start, there will be only one, called <guilabel>default</guilabel>
+with the sample midis from the &kmidi; distribution. You change the
+contents of this by clicking once on the name
+<guilabel>default</guilabel> (if it is not already selected) then
+clicking <menuchoice><guimenu>File</guimenu>
+<guimenuitem>Save</guimenuitem></menuchoice> to replace the contents of
+the playlist file with your current playlist. Or click
+<menuchoice><guimenu>File</guimenu><guimenuitem>Append</guimenuitem></menuchoice>
+to concatenate your current playlist onto the end of a playlist file. To
+create a new playlist, click
+<menuchoice><guimenu>File</guimenu><guimenuitem>Save as
+...</guimenuitem></menuchoice> instead and fill in the new name you've
+chosen into the little box that appears. Double click on the name of a
+playlist to replace your current playlist with the contents of the one
+you've saved. This can also be done from the front panel by single
+clicking on the name of a playlist in the <guilabel>Select
+Playlist</guilabel> box.
+</para>
+
+<para>
+Remove a playlist by clicking on its name, then clicking
+<menuchoice><guimenu>File</guimenu> <guimenuitem>Remove</guimenuitem>
+</menuchoice>.
+</para>
+
+<para>
+The vertical bar separating the directory list from the playlist can be
+dragged from left to right with the mouse. The horizontal bar separating
+these from the playlist names can be dragged up and down.
+</para>
+
+</sect1>
+
+<sect1 id="midi-filenames">
+<title>Midi file names </title>
+
+<para>
+The names of midi files you see on the front panel may differ slightly
+from the actual file names. For readability, &kmidi; replaces any
+<quote>_</quote> in the midi file name by spaces and chops off the
+<literal role="extension">.mid</literal>/ <literal
+role="extension">.MID</literal> ending if present.
+</para>
+
+</sect1>
+
+<sect1 id="configuring">
+<title>Configuring </title>
+
+<para>
+Clicking the configure button on the panel takes you to a configure
+screen where you can choose the background color of the panel's two
+windows and the <acronym>led</acronym> color. At the moment, the color
+used for percussion in the channel meter is not configurable - it's
+always yellow.
+</para>
+
+</sect1>
+
+<sect1 id="patchsets">
+<title>Patchsets </title>
+
+<para>
+On the bottom panel at the top left you'll find the patchset selector.
+For &kmidi; as distributed, you'll see three patchset options:
+<guilabel>piano+guitar</guilabel>, <guilabel>piano</guilabel>, and
+<guilabel>guitar</guilabel>. There isn't any real point to selecting the
+piano or guitar patchsets; the choices are there merely as an
+illustration. When you acquire a bunch of patchsets, you can set things
+up so as to switch between them from the panel. Here is how to do that:
+</para>
+
+<para>
+For each patchset, create a <literal role="extension">cfg</literal> file
+describing the patches and their banks and instrument (midi program)
+numbers. Then in the file <filename>timidity.cfg</filename>, enter a
+line <userinput>source <replaceable>filename</replaceable></userinput>
+and a preceding line if <replaceable>n</replaceable>, where
+<replaceable>filename</replaceable> is the name you gave to the file
+describing the patches, and <replaceable>n</replaceable> is the line
+where <replaceable>filename</replaceable> will appear in &kmidi;'s panel
+in the <guilabel>Select Patchset</guilabel> box. Clicking on this name
+will select the patchset. The numbering of the patchsets starts with
+number 0.
+</para>
+
+<para>
+In <literal role="extension">cfg</literal> files, the banks/drumsets and
+names of patches must be given, since those that are not declared will
+not be loaded from files (<acronym>GUS</acronym> patch files or sound
+fonts) even though the patches are available. This way it's easy to
+exclude certain patches from a sound font so as to load better ones from
+a subseqently loaded font. Just don't declare them before you've asked
+to load the font.
+</para>
+
+<para>
+When the same patch of the same bank or drumset is declared more than
+once, only the first declaration counts. So put your best fonts first.
+</para>
+
+<para>
+There is a utility <command>sf2cfg</command> to construct a <literal
+role="extension">cfg</literal> file for a <literal
+role="extension">sbk</literal>/<literal role="extension">sf2</literal>
+sound font, which spits out all the patches that are present in the
+font. Also, I've included sample <literal role="extension">cfg</literal>
+files for <filename>chaos8m.sf2</filename> and
+<filename>chaos12m.sf2</filename>.
+</para>
+
+</sect1>
+
+<sect1 id="polyphony">
+<title>Polyphony </title>
+
+<para>
+Do you hear dropouts in the music? It's possible for &kmidi; to get
+behind in doing the many calculations required to adjust the pitch of
+instrument patches, filter the signal, combine notes, and so on. If this
+happens, you may be able to improve the situation by using the spinbox
+on the lower panel to the right.  This adjusts the maximum number of
+polyphonic <quote>voices</quote> used at the same time.  When you lower
+the maximum polyphony, you lighten &kmidi;'s burden at the cost of some
+chorus or reverb effect being lost, or some notes being cut short or
+actually being omitted altogether. (In some circumstances, &kmidi;
+generates extra notes to approximate the effect of midi chorus and
+reverberation.)
+</para>
+
+</sect1>
+
+<sect1 id="effects">
+<title>Effects </title>
+
+<para>
+Effects modify the sound in various ways, some of which I'm not too
+clear about. There are four ways effects may be requested and two ways
+you can control them.
+</para>
+
+<para>
+A midi song may specify an effect for all the instruments playing on any
+particular one of the 16 midi channels. Or, it may specify several
+effects for several channels. When you click down the panel's
+<guibutton>eff</guibutton> button, the signal is filtered to approximate
+the midi effects: chorus, reverberation, celeste, and phaser. But there
+won't be any effects unless the song in the midi file asks for them. Two
+of the standard midi effects, harmonics and brightness, are not yet
+implemented by filters. (The filters were coded by Nicolas Witczak.)
+</para>
+
+<para>
+When you don't click down the <guibutton>eff</guibutton> button, you
+still get some chorus and reverberation on channels where it's
+requested, but it's done in a different way. Now, instead of using
+filters, extra notes are generated. They are detuned slightly for chorus
+effect and delayed slightly for reverberation. There are also some
+adjustments made to note envelopes and vibrato. With
+<guibutton>eff</guibutton> turned off, you get no channel celeste or
+phaser effects.
+</para>
+
+<para>
+A second way effects may be requested is by a patch. That is, an
+instrument patch may contain a suggested chorus and/or reverb level. AWE
+patches generally do specify effects, but Gravis-Forte patches
+don't. (That's why AWE patchsets tend to sound a bit fruity.) Effects
+requested this way are done by the <guibutton>ghost note</guibutton>
+method, and are unaffected by the <guibutton>eff</guibutton> button.
+</para>
+
+<para>
+Thirdly, you may request effects. Notice the four checkboxes at the
+right of the panel. Each has three states: <guilabel>normal</guilabel>
+(the default), <guilabel>extra</guilabel>, and
+<guilabel>off</guilabel>. The middle two checkboxes control
+<guilabel>chorus</guilabel> and <guilabel>reverb</guilabel>. If they are
+set to <guilabel>normal</guilabel>, effects are treated as described
+above. Set to <guilabel>extra</guilabel>, extra notes are generated for
+chorus or reverb for all instruments and all channels, and this is in
+addition to the effects filters if they are requested by clicking
+<guilabel>eff</guilabel>. When they are set to <guilabel>off</guilabel>,
+no extra chorus or reverb notes are generated.
+</para>
+
+<para>
+Finally, effects may be requested by midi system exclusive message in a
+midi file -- <quote>sysexes</quote>. These are intended to control the
+hardware of specific synthesizers. &kmidi; does a certain amount of
+decoding of sysexes for Roland GS synths and Yamaha XG synths and does
+its best to modify the sound accordingly.  Chorus, reverb, and
+variations on these are done by the <quote>ghost note</quote> method and
+can be switched off with the checkboxes just mentioned. However, when
+the celeste variation of chorusing is requested in an XG sysex, this
+invokes Witczak's celeste filter, provided the
+<guibutton>eff</guibutton> button is clicked on.
+</para>
+
+</sect1>
+
+<sect1 id="command-line-options">
+<title>Command Line Options</title>
+
+<para>
+Except for giving the names of one or more midi files on the command line,
+the material in this section is probably not very useful to know about. If you
+have a need for these options, you'd probably prefer to use the command line
+version of this program: <application>timidity</application>.
+</para>
+
+<cmdsynopsis>
+<command>kmidi</command>
+<group><option>options</option> <arg>filename</arg>
+</group>
+</cmdsynopsis>
+
+<para>
+Use &quot;-&quot; as filename to read a MIDI file from <filename
+class="devicefile">stdin</filename>
+</para>
+
+<variablelist>
+<title>Options:</title>
+<varlistentry>
+<term><option>-o</option> <parameter>filename</parameter></term>
+<listitem>
+<para>
+Place output on filename, which may be a file, device, or HP-UX audio
+server, depending on the output mode selected with the
+<option>-O</option> option.  The special filename ``-'' causes
+output to be placed on <filename class="devicefile">stdout</filename>.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-O</option> <parameter>mode</parameter></term>
+<listitem>
+<para>
+Selects the output mode from the compiled-in alternatives.  mode must
+begin with one of the supported output mode identifiers. Run
+<application>TiMidity</application> with the <option>-h</option> option
+to see a list.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-s</option> <parameter>freq</parameter></term>
+<listitem>
+<para>
+Set sampling frequency to <parameter>freq</parameter> (Hz or kHz) Not
+all sound devices are capable of all frequencies -- an approximate
+frequency may be selected, depending on the implementation.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-a</option></term>
+<listitem>
+<para>
+Enable the antialiasing filter. Samples are run through a lowpass filter
+before playing, which reduces aliasing noise at low resampling
+frequencies.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-f</option></term>
+<listitem>
+<para>
+Enable fast decay mode. Toggles fast envelopes. Some MIDI files
+sound better when notes decay slower -- it gives the impression of
+reverb.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-p</option> <parameter>n</parameter></term>
+<listitem>
+<para>
+Sets polyphony (maximum number of simultaneous voices).
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-A</option> <parameter>n</parameter></term>
+<listitem>
+<para>
+Amplify volume by <parameter>n</parameter> percent (may cause
+clipping)
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-C</option> <parameter>n</parameter></term>
+<listitem>
+<para>
+Sets the ratio of sampling and control frequencies. This determines how
+often envelopes are recalculated -- small ratios yield better quality
+but use more <acronym>CPU</acronym> time.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-E</option></term>
+<listitem>
+<para>
+Turns on Witczak's effect filters for chorus, reverb, phaser,
+and celeste.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-&num;</option> <parameter>n</parameter></term>
+<listitem>
+<para>
+Select patch set
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-L</option> <parameter>dir</parameter></term>
+<listitem>
+<para>
+Append dir to search path
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-c</option> <parameter>file</parameter></term>
+<listitem>
+<para>
+Read extra configuration file
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-I</option> <parameter>n</parameter></term>
+<listitem>
+<para>
+Use program <parameter>n</parameter> as the default
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-P</option> <parameter>file</parameter></term>
+<listitem>
+<para>
+Use patch <parameter>file</parameter> for all programs
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-D</option> <parameter>n</parameter></term>
+<listitem>
+<para>
+Play drums on channel <parameter>n</parameter>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-Q</option> <parameter>n</parameter></term>
+<listitem>
+<para>
+Ignore channel <parameter>n</parameter>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-F</option></term>
+<listitem>
+<para>
+Enable fast panning
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-U</option></term>
+<listitem>
+<para>
+Unload instruments from memory between MIDI files
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-i</option> <parameter>mode</parameter></term>
+<listitem>
+<para>
+Select user interface (see <link linkend="user-interfaces">below</link>
+for list)
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-B</option> <parameter>n</parameter></term>
+<listitem>
+<para>
+Set number of buffer fragments
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-h</option></term>
+<listitem>
+<para>
+Display the help message
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title>Available output modes (<option>-0</option></title>
+<varlistentry>
+<term><option>-O</option> <parameter>d</parameter></term>
+<listitem>
+<para>
+&Linux; <filename class="devicefile">dsp</filename> device
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-O</option> <parameter>w</parameter></term>
+<listitem>
+<para>
+RIFF WAVE file
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-O</option> <parameter>r</parameter></term>
+<listitem>
+<para>
+raw waveform data
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title>Output format options (append to <option>-O</option></title>
+<varlistentry>
+<term><parameter>`8'</parameter></term>
+<listitem>
+<para>
+8-bit sample width
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`1'</parameter></term>
+<listitem>
+<para>
+16-bit sample width
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`U'</parameter></term>
+<listitem>
+<para>
+uLaw encoding
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`l'</parameter></term>
+<listitem>
+<para>
+linear encoding
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`M'</parameter></term>
+<listitem>
+<para>
+monophonic
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`S'</parameter></term>
+<listitem>
+<para>
+stereo
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`s'</parameter></term>
+<listitem>
+<para>
+signed output
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`u'</parameter></term>
+<listitem>
+<para>
+unsigned output
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`x'</parameter></term>
+<listitem>
+<para>
+byte-swapped output
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title>Available interfaces (append to <option>-i</option>)</title>
+<varlistentry>
+<term><parameter>q</parameter></term>
+<listitem>
+<para>
+&kmidi; &Qt; interface
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>d</parameter></term>
+<listitem>
+<para>
+dumb interface
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title>Interface options (append to
+<option>-i</option><parameter>?</parameter> option)</title>
+<varlistentry>
+<term><parameter>`v'</parameter></term>
+<listitem>
+<para>
+more verbose (cumulative)
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`q'</parameter></term>
+<listitem>
+<para>
+quieter (cumulative)
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>`t'</parameter></term>
+<listitem>
+<para>
+trace playing
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>-i</parameter></term>
+<listitem>
+<para>
+mode Select user interface (see below for list) 
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="questions-and-answers">
+<title>Questions and Answers</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para>
+Where do I get a full patch set?
+</para>
+</question>
+<answer>
+<para>
+Please refer to the corresponding <link
+linkend="patches">section</link> in the &kmidi; installation chapter.
+</para>
+</answer>
+</qandaentry>
+</qandaset>
+
+</chapter>
+
+<chapter id="design">
+<title>
+Design
+</title>
+
+<sect1 id="processes">
+<title>Processes
+</title>
+
+<para>
+&kmidi; is the user front end which handles the screen display and
+button presses, etc.  It executes as a separate process from &timidity;,
+which reads midi files and plays them.
+</para>
+</sect1>
+
+<sect1 id="synthesis-model">
+<title>Synthesis Model</title>
+
+<para>
+&timidity; has a tone generator, two envelope generators, three low
+frequency sine-wave oscillators, a low pass filter, and an effects unit.
+(The low pass filter is used only when &kmidi;'s fourth interpolation
+option is chosen and the on <quote>filt</quote> button is depressed --
+at present it doesn't work well.)
+</para>
+
+<para>
+The tone generator resamples instrument patches at the basic frequencies
+appropriate for specific notes being played.  (The interpolation
+algorithm used is selectable using the four checkboxes on the upper
+panel.)
+</para>
+
+<para>
+The envelope generators modulate each note with successively: an attack
+phase, a hold phase, a decay, and a release.  One of the generators
+affects amplitude, and the other affects pitch and/or the cutoff
+frequency of the low pass filter.
+</para>
+
+<para>
+The low frequency oscillators modulate amplitude (for tremolo),
+frequency (for vibrato), and the low pass filter cutoff frequency (XG
+<quote>rezo sweep</quote>).
+</para>
+
+<para>
+The effects unit supplies echo, detuning, reverberation, chorusing,
+celeste, and phaser effects.  Echo (done by generating extra echo notes)
+and reverbration (done with a filter) implement midi reverberation.
+Detuning (done by generating extra pitch bent notes) and chorusing (done
+with a filter) implement midi chorusing.  (The effects filters are
+active only when &kmidi;'s <guibutton>eff</guibutton> button is pressed
+on.  Echo and detuning can be controlled with the middle two checkboxes
+on the right of the lower panel and from the Chorus and Reverb menus.)
+</para>
+
+<para>
+Instruments may have either one or two tone elements, and for each of
+these, a patch set may provide separate patches for different
+note-velocity ranges (commonly for pianos) and for different note-pitch
+ranges.  GUS patch sets, however, provide only one tone element and one
+velocity range per instrument.  (If you click the rightmost checkbox at
+the right of the lower panel, &kmidi; will display in its info window
+the names of patches as it loads them, a <quote>(2)</quote> if they have
+two tone elements, and the velocity range.)
+</para>
+</sect1>
+
+<sect1 id="midi-implementation">
+<title>Midi Implementation
+</title>
+
+<para>
+Almost all midi messages and controllers that I'm aware of are
+implemented somehow (meaning that they cause something to happen, if not
+necessarily the right thing).  NRPN controllers for setting attack and
+decay time are not implemented, because I haven't found any midi files
+that use them.  The flanging controller is not implemented (though
+flanging requested in an XG sysex dump is implemented).  Only a few of
+the hardware oriented controls in Roland and Yamaha system exclusive
+dumps are implemented.
+</para>
+
+<para>
+&timidity; can handle midi files meant to play on up to four
+synthesizers, keeping separate the four sets of 16 channels for each
+synth.  However, in the midi file, the synths have to be selected using
+port commands (in either Roland-GS or Yamaha-XG sysex dumps).  Some midi
+files intended for multiple synths don't have port commands.  (The info
+window shows port commands when present.)
+</para>
+
+<para>
+The &kmidi; vertical-bar display of channel activity is limited to two
+sets of 16 channels.  The channel chart of patches with horizontal bars
+for controller values is limited to just one set of 16 channels.
+</para>
+</sect1>
+
+<sect1 id="volume">
+<title>Volume
+</title>
+
+<para>
+I've reduced the volumes levels &timidity; generates quite a lot, as
+compared with the original implementation.  This minimizes clipping and
+gives an increased dynamic range.  (There may be some artifacts now at
+low volumes, unfortunately.)  If you need more volume, I suggest you
+turn up the volume somewhere else, either use &kmix; to turn up the line
+volume, the mixer volume for <filename
+class="devicefile">/dev/dsp</filename>, or turn up earphones, amplified
+speakers, or whatever.
+</para>
+</sect1>
+
+<sect1 id="computation-issues">
+<title>Computation Issues</title>
+
+<para>
+&timidity; can fall behind in computing data to send out to the sound
+driver, and then there are dropouts in the music.  &timidity; tries to
+anticipate the possibility of a dropout by monitoring the state of its
+output buffer and those of the sound driver, and when there is not much
+in the buffers, it tries to catch up by minimising the calculations it
+has to do: it uses a cruder interpolation routine in resampling, stops
+doing extra echo and detuned notes for reverb and chorus effects, and
+starts terminating notes early, or even skipping notes altogether.  So,
+depending on midi song, patchset, how fast your system is, even if you
+don't hear dropouts, you will notice a loss in quality as &timidity;
+gets busier.  &kmidi;'s front panel lights give some picture of how
+desperate &timidity; is becoming in its effort to keep the music
+playing.  (Signs of desperation: the buffer led goes from healthy
+greenish to busy orangeish, the interpolation <acronym>led</acronym>
+turns off (meaning linear interpolation is being used for resampling),
+the echo <acronym>led</acronym> goes off, or the detuning
+<acronym>led</acronym> goes off (meaning no extra echo or detuned notes
+are being played).
+</para>
+
+<para>
+Monitoring the output buffer involves calling the sound driver to find
+out how much data it has buffered up.  I know how to do this for Hannu
+Savolainen's <acronym>OSS</acronym> driver (&Linux; and some other
+systems), perhaps for older Suns (it used to work), but not for other
+drivers.
+</para>
+
+<para>
+You can lighten &timidity;'s computational burden by various
+maneuvers: 
+</para>
+
+<orderedlist>
+<listitem>
+<para>
+Reduce the permitted polyphony (spin box on the lower panel).
+</para>
+</listitem>
+<listitem>
+<para>
+Turn off the <guibutton>eff</guibutton> button.
+</para>
+</listitem>
+<listitem>
+<para>
+Choose cheaper resampling interpolation (one of the check boxes on the
+upper panel, furthest to the left.
+</para>
+</listitem>
+<listitem>
+<para>
+Turn off echo, detuning, or stereo, using the left three checkboxes on
+the lower panel.
+</para>
+</listitem>
+<listitem>
+<para>
+Choose the <guimenuitem>dry</guimenuitem> setting on the
+<guimenu>Reverb</guimenu> menu.
+</para>
+</listitem>
+</orderedlist>
+
+<para>
+Of course, there is generally some attendant loss in quality.  Having
+the <guibutton>filt</guibutton> button on doesn't cost anything unless
+you've also chosen the <guibutton>cspline</guibutton> +
+<guibutton>filter</guibutton> interpolation option.
+</para>
+
+</sect1>
+
+<sect1 id="memory-issues">
+<title>Memory Issues
+</title>
+
+<para>
+It's possible for &timidity; to use an excessive amount of memory for
+patches.  Symptoms are your window system becoming very sluggish, or
+crashing.  This is probably only a problem when using big sf2 soundfonts
+of 30+ megabytes.  For instance, the piano patches in Personal Choice's
+PC400 soundfont can occupy 25 megs each.  After playing a list of midi
+files which use three of these pianos, well, that's 75 megs of ram right
+there.  In its configuration dialog, &kmidi; lets you set a maximum
+number of megs to be used to keep patches used in playing previous midi
+files; when this maximum is exceeded, &timidity; will unload least
+recently used patches, returning ram to the system.  The default maximum
+is 60 megs, which works ok on my system (I have 48 megs ram and 196 megs
+cache).  Setting this to a lower value means that more patches have to
+be reloaded from patch files as you play through a list of midi songs,
+which slows things up.  If you're ram rich, you can set it to <quote>no
+limit</quote>.
+</para>
+
+<para>
+If you allowed enough room, entire soundfont files are read at once,
+instead of patch by patch.  Setting the maximum too low can be
+counterproductive, because soundfont files occupy much less memory in
+toto when the entire file is read than when the patches are read
+individually (I don't know why).
+</para>
+
+<para>
+For little-endian systems like x86, rather than being read in, sf2
+soundfonts are mmapped.  This is much faster on startup.  I haven't
+figured out a way to do this for big-endian systems.
+</para>
+
+<para>
+After playing each midi file, &kmidi; will report in the info window on
+how much memory is currently occupied by patches.
+</para>
+
+<para>
+If you don't have much ram or cache memory, setting a low maximum for
+patch memory might not prevent &kmidi; from crashing your system.  So be
+careful using big soundfonts.
+</para>
+</sect1>
+
+</chapter>
+
+<chapter id="license-and-credits">
+<title>Licenses and Credits</title>
+
+<para>
+&kmidi; uses Tuukka Toivonen's &timidity; 0.2i engine Copyright (C) 1995
+Tuukka Toivonen <email>toivonen@clinet.fi</email>.  In fact, an enhanced
+version of Tuukka's original program with five other alternative user
+interfaces is included with the &kmidi; distribution. (See below for
+information on compiling &timidity;.)
+</para>
+
+<para>
+&kmidi; and &timidity; use AWE SoundFont extensions done by Takashi Iwai
+<email>iwai@dragon.mm.t.u-tokyo.ac.jp</email> and <acronym>AMD</acronym>
+InterWave extensions done by Greg Lee <email>lee@hawaii.edu</email>
+which enable you to use SoundFonts (<literal
+role="extension">.sbk</literal>/<literal role="extension">.sf2</literal>
+files) and <acronym>IW</acronym> patchsets (<literal
+role="extension">.fff</literal>/<literal role="extension">.dat</literal>
+files) in addition to Gravis/Forte <literal
+role="extension">.pat</literal> files.
+</para>
+
+</chapter>
+
+<chapter id="copyright">
+<title>Copyright
+</title>
+
+<para>
+&kmidi; Copyright 1997 Bernd Johannes Wuebben
+<email>wuebben@kde.org</email>
+</para>
+
+<para>
+&kmidi; uses Tuukka Toivonen's &timidity; 0.2i engine, Copyright &copy;
+1995 Tukka Toivonen <email>toivonen@clinet.fi</email>.
+</para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="how-to-obtain-kmidi">
+<title>How to obtain &kmidi;</title>
+
+<para>
+&kmidi; is part of the &kde; project <ulink
+url="http://www.kde.org"></ulink>. &kmidi; can be found on <ulink
+url="ftp://ftp.kde.org/pub/kde/"></ulink>, the main &FTP; site of the
+&kde; project.
+</para>
+</sect1>
+
+<sect1 id="requirements">
+<title>Requirements</title>
+
+<para>
+In order to successfully compile &kmidi;, you need appropriate versions
+of the program libraries in <literal>kdelibs</literal>. All required
+libraries as well as &kmidi; itself can be found on <ulink
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde</ulink>.
+</para>
+
+<para>
+To compile the <quote>dumb</quote> commandline interface of &timidity;,
+any standard &UNIX; type system should do. The other interfaces have
+special requirements (see the various <filename>README</filename> files
+in the distribution). The &Motif; interface works reasonably well with
+<application>Lesstif</application>, but better with &Motif;.
+</para>
+
+</sect1>
+
+<sect1 id="compilation-and-installation">
+
+<title>Compilation and installation</title>
+
+<para>
+If you previously installed &kmidi;, it would be wise to move your
+configuration directory (probably
+<filename>&dollar;<envar>KDEDIR</envar>/share/apps/kmidi/config/</filename>)
+before installing this version, since the files that go here have
+changed, and you'll want to use or at least look at the new
+versions. Similarly, before installing the non-&kde; version of
+&timidity;, back up <filename
+class="directory">/usr/local/lib/timidity/</filename>. On the other
+hand, for a completely fresh install you should remove any files in
+these two directories, since the old files might not be replaced by new
+versions.
+</para>
+
+<para>
+If you have the entire kdemultimedia distribution, cd to the kdemultimedia
+directory and 
+</para>
+
+<screen><prompt>&percnt;</prompt><userinput><command>./configure</command></userinput></screen>
+
+<para>
+Alternatively, to include all of the other user interfaces:
+<anchor id="user-interfaces"/>
+</para>
+
+<screen><prompt>&percnt;</prompt><userinput><command>./configure</command>
+<option>--enable-interface</option>=<parameter>ncurses</parameter>,<parameter>xaw</parameter>,<parameter>gtk</parameter>,<parameter>tcltk</parameter>,<parameter>slang</parameter>,<parameter>motif</parameter></userinput></screen>
+
+<para>
+Then to make all the multimedia programs, stay in that directory, or to
+make just &kmidi;, <command>cd</command> to the <filename
+class="directory">kmidi</filename> directory, and
+</para>
+
+<screen>
+<prompt>&percnt;</prompt> <userinput><command>make</command></userinput>
+<prompt>&percnt;</prompt> <userinput><command>make</command> <option>install</option></userinput>
+</screen>
+
+<para>The non &kde; version of &timidity;, <command>timidity</command>,
+is compiled and installed at the same time as &kmidi;.  The
+<command>man</command> page <filename>timidity.1</filename> is not,
+however, automatically installed in <filename
+class="directory">/usr/man/man1/</filename>.
+</para>
+
+</sect1>
+
+<sect1 id="patches">
+<title>Where to get a full set of patches?</title>
+
+<para>
+There are two sorts of patches that &kmidi;/&timidity; can use:
+<acronym>GUS</acronym> patches and AWE32 SoundFonts (<literal
+role="extension">sf2</literal> files).  A set of samples and parameters
+for a single instrument, a patch, is in a separate file for
+<acronym>GUS</acronym> patches, but AWE SoundFonts put everything in a
+single <literal role="extension">.sf2</literal> file (or <literal
+role="extension">.sbk</literal>).
+</para>
+
+<para>
+I recommend <literal role="extension">.sf2</literal> SoundFonts, and of
+those, the Chaos fonts mentioned below, in preference.)
+</para>
+
+<para>
+Open up &kmidi;'s configuration window for pointers to some web pages
+with patch sets.  Here are some other places to get patches:
+</para>
+
+<para>
+Dan Hollis <email>goemon@anime.net</email> has put together a patch set.
+Please  visit  his   page  at  <ulink  url="mailto:goemon@anime.net">Dan
+Hollis</ulink> has  put together a patch  set. Please visit  his page at
+<ulink
+url="http://www.anime.net/~goemon/timidity">http://www.anime.net/~goemon/timidity</ulink>
+and help him make this the best set available.
+</para>
+
+<para><emphasis>New:</emphasis> I have uploaded the above patchset to
+ftp.kde.org. It is currently in <ulink
+url="ftp://fiwi02.wiwi.uni-tuebingen.de/pub/kde/stable/Beta2/apps/multimedia/sound/">ftp://fiwi02.wiwi.uni-tuebingen.de/pub/kde/stable/Beta2/apps/multimedia/sound/</ulink>&lt;but
+I expect we will move it around a bit until we found a good location for
+it. So just poke around a bit on ftp.kde.org, if the set can no longer
+be found at the above mentioned location by the time you read
+this.</para>
+
+<para>Patches can also be found packaged as dep or rpm modules on the
+Sunsite archive:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Debian: <ulink url="ftp://sunsite.unc.edu/pub/Linux/distributions/debian/bo/source/sound/timidity-patches_0.1.tar.gz">timidity-patches_0.1.tar.gz</ulink>u</para>
+</listitem>
+<listitem>
+<para>RPM: <ulink
+url="ftp://sunsite.unc.edu/pub/Linux/distributions/redhat/contrib/oldrpms/contrib-2.0.x/RPMS/timidity-patches-1-1.i386.rpm">timidity-patches-1-1.i386.rpm</ulink>u</para>
+</listitem>
+<listitem>
+<para>RPM: <ulink url="ftp://sunsite.unc.edu/pub/Linux/distributions/redhat/contrib/oldrpms/contrib-2.0.x/SRPMS/timditiy-patches-1-1.src.rpm-try2">timidity-patches-1-1.src.rpm-try2</ulink></para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para>I have not tried the above (yet), and personally use the Midia
+patch set together with a few additional patches and a couple of
+additional drum sets.  The Midia patch set can be found at: <ulink
+url="ftp://archive.cs.umbc.edu/pub/midia/">ftp://archive.cs.umbc.edu/pub/midia/</ulink>.</para>
+
+<para>For additional patches and drum sets: (get the gsdrum and wow
+patches) <ulink
+url="ftp://ftp.cdrom.com/pub/gus/sound/patches/files/">ftp://ftp/cdrom.com/pub/gus/sound/patches/files/</ulink>.</para>
+
+<para>Vincent Pagel has put together a collection of patches. This link
+can only be reached during night hours (Paris). <ulink
+url="ftp://sig.enst.fr/pub/midi/instruments/">ftp://sig.enst.fr/pub/midi/instruments/</ulink>. The
+config file that goes with his patch set can be found <ulink
+url="ftp://sig.enst.fr/pub/midi/timidity_pagel.cfg">here</ulink>.</para>
+
+<para>Also check the <ulink
+url="http://www.clinet.fi/~toivonen/timidity/">Timdity
+Page</ulink></para>
+
+<para>and <ulink
+url="bahamut.mm.t.u-tokyo.ac.jp/~iwai/midi.html#TiMidity">Takashi's
+page</ulink>. Takashi's page recommends the 8 meg AWE32 SoundFont
+<literal>chaos8m.sf2</literal> and the 12 meg AWE32 SoundFont
+<literal>chaos12m.sf2</literal> available at <ulink
+url="http://soback.kornet.nm.kr/~chaos/sbawe32/sbawe32.htm"></ulink>,
+which are very nice.  (They are packaged as self-decompressing
+<literal>.exe</literal> files.)</para>
+
+<sect2 id="patch-set-installation">
+<title>Patch set installation</title>
+
+<para>Some of the above patch sets come with a <literal
+role="extension">.cfg</literal> configuration file similar to the .cfg
+files which come with KMidi and reside in <filename
+class="directory">KDEDIR/share/apps/kmidi/config</filename>.  &kmidi;
+has configuration files ready made for you for a number of common patch
+sets, such as the media patch set. For <literal
+role="extension">.sf2</literal> SoundFonts, a utility program is
+supplied, <literal role="extension">sf2cfg</literal>, which constructs a
+<literal role="extension">.cfg</literal> file from a <literal
+role="extension">.sf2</literal> font. This is compiled along with
+&timidity;.</para>
+
+<para>It is not necessary to give <literal
+role="extension">.cfg</literal> files names with a <literal
+role="extension">.cfg</literal> extension. They are ordinary text files
+whose structure is described in another section of this manual.</para>
+
+<para>In order to complete the installation of a complete patchset edit
+the file <filename>timidity.cfg</filename> and source the appropriate
+config files for the patch set/sets you downloaded. Look at
+<filename>timidity.cfg</filename> for an example. That's it. Now you can
+go ahead and and play the other midis that are in the &kmidi;
+distribution ( and any others of course).</para>
+
+</sect2>
+
+<sect2 id="miscellaneous">
+<title>Miscellaneous</title>
+
+<para>Occasionally you will see that &kmidi; can't find a patch for a
+particular instrument. ( Open the Info Window in order to see this
+information ) In that case, all you have to do is go out and get
+yourself the missing patch and install it by moving the patch into the
+patch/ directory and editing your patch set <literal
+role="extension">.cfg</literal> file to tell &kmidi; that the new patch
+is available now. </para>
+
+<para>Sometimes a particular instrument doesn't sound all that well. In
+that case, simply go out and get yourself a different patch from any of
+the Ultrasound archives and replace the not so optimal patch by a better
+one. As you can see, it is totally up to you how good every instrument
+will sound. You can even make your own patches with the
+<command>pat2wav</command> utility which is included in the &kmidi;
+distribution.</para>
+</sect2>
+</sect1>
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

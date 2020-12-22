@@ -1,0 +1,16 @@
+1) restart artsd when needed
+2) get the command line stuff to work
+3) Auto-Read ID3/Ogg tags when adding to playlist/dynamic load of these plugins (in progress)
+4) Make sure all code adheres to standards
+
+Other CODECs for aRts:
+1) MIDI/timidity for transparent high-quality MID files
+2) Shoutcast
+3) SMPEG
+4) SPC
+5) NSF (requires multi-track files)
+6) libmpeg3
+
+Tron TODO:
+1) Save Equalizer levels per-file
+2) happy danimo patch - change shuffle to remember a history

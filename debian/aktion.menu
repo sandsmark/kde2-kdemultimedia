@@ -1,0 +1,8 @@
+?package(aktion):\
+	needs=x11\
+	section=Apps/Viewers\
+	hints="KDE"\
+	kderemove="y"\
+	title="aKtion!"\
+	command=/usr/bin/aktion
+

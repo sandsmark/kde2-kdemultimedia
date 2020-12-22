@@ -1,0 +1,30 @@
+dnl ************************************************************************
+dnl Checking for XFree86 VidMode Extensions
+AC_MSG_CHECKING([for XFree86-VidModeExtension])
+
+AC_CACHE_VAL(ac_cv_lib_vm,
+ [ac_save_LIBS="$LIBS"
+ LIBS="-L/usr/X11R6/lib -lXxf86dga -lXxf86vm -lXext -lX11"
+ AC_TRY_LINK( [
+              #include <X11/Xlib.h>
+	      #include <X11/Xatom.h>
+              #include <X11/extensions/xf86vmode.h>
+	      ],
+              [],
+              eval "ac_cv_lib_vm='-lXxf86dga -lXxf86vm'",
+              eval "ac_cv_lib_vm=no")
+ LIBS="$ac_save_LIBS"
+])
+
+if eval "test ! \"`echo $ac_cv_lib_vm`\" = no"; then
+dnl  
+  LIBVM="$ac_cv_lib_vm"
+  AC_DEFINE(XF86_VM, 1, [Define if you have libXxf86vm])
+  AC_SUBST(LIBVM)
+  AC_MSG_RESULT($ac_cv_lib_vm)
+else
+  AC_MSG_RESULT(no)
+  LIBVM=""
+  AC_SUBST(LIBVM)
+fi
+

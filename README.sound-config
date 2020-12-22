@@ -1,0 +1,28 @@
+
+					Greg Lee, 12/3/99
+
+I added some stuff to configure taken from TiMidity++, making some
+extra symbols available in the Makefiles.  See kmidi/acinclude.m4.in
+and kmidi/configure.in.in .
+
+					EXTRADEFS		EXTRALIBS			CPPFLAGS
+oss	OSS /dev/dsp			-DAU_OSS
+alsa	ALSA pcm device			-DAU_ALSA		?				$ALSA_CFLAGS
+sun	SunOS /dev/audio		-DAU_SUN		/usr/demo/SOUND/libaudio.a
+hpux	HPUX /dev/audio			-DAU_HPUX_AUDIO
+irix	IRIX audio			-DAU_AUDRIV -DSGI_OLDAL	-laudio
+					-DAU_AUDRIV -DSGI_NEWAL
+mme	OSF/1 MME			-DAU_DEC -DAU_AUDRIV	/usr/opt/MME220/lib/libmme.a	-I/usr/opt/MME210/include
+sb_dsp	BSD/OS 2.0 /dev/sb_dsp		-DAU_BSDI -DDEFAULT_RATE=22500
+alib	HPUX network audio (Alib)	-DAU_HPUX_ALIB		-L/opt/audio/lib -lAlib		-I/opt/audio/include
+nas	Network Audio System		-DAU_NAS		...libaudio...
+esd	EsounD				-DAU_ESD		?				$ESD_CFLAGS
+
+other symbols:
+ESD_CFLAGS
+ESD_LIBS
+ALSA_CFLAGS
+ALSA_LIBS
+EXTRACFLAGS
+EXTRALIBS
+CPPFLAGS

@@ -1,0 +1,121 @@
+#!/usr/bin/make -f
+# Made with the aid of debmake, by Christoph Lameter,
+# based on the sample debian/rules file for GNU hello by Ian Jackson.
+#export DH_VERBOSE=1
+ 
+# This is the debhelper compatability version to use.
+export DH_COMPAT=3
+tmp = $(shell pwd)/debian/kdemultimedia-dev
+ARCH = $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+ifeq ($(ARCH),alpha)
+  export CFLAGS=-O0 -mieee
+  export CXXFLAGS=-O0 -mieee
+endif
+
+ifeq ($(ARCH),hppa)
+  export CXXFLAGS=-ffunction-sections
+endif
+
+ifeq ($(ARCH),i386)
+  # Uncomment the following 2 lines for i686 optimization
+  #export CFLAGS=-O3 -march=i686 -ffast-math -finline-functions
+  #export CXXFLAGS=-O3 -march=i686 -ffast-math -finline-functions
+  XINERAMA=--with-xinerama
+endif
+
+build: build-stamp
+
+-include debian/debiandirs
+
+debian/debiandirs: admin/debianrules
+	perl -w admin/debianrules echodirs > debian/debiandirs
+
+build-stamp:
+	dh_testdir
+	if test ! -f configure; then \
+	 make -f admin/Makefile.common ;\
+	fi 
+	-chmod 755 configure
+	-mv subdirs subdirs.tmp
+	-cat subdirs.tmp | grep -v aktion > subdirs
+	-rm -f subdirs.tmp
+	./configure $(configkde) --disable-esdtest \
+		--enable-interface=ncurses,slang,xaw $(XINERAMA) \
+		--disable-glibtest
+		
+	make
+
+	touch build-stamp
+
+clean: debian-clean
+	dh_clean 
+
+debian-clean:
+	dh_testdir
+	-rm -f debian/debiandirs kmidi/TIMIDITY/BITMAPS
+	if test -d CVS; then \
+	  make -f admin/Makefile.common cvs-clean ;\
+	fi
+	-make distclean
+
+
+binary-indep:	build
+	dh_testroot
+	dh_testdir
+
+binary-arch:	build
+	dh_testroot
+	dh_testdir
+	dh_clean -k
+	dh_installdirs -a
+	make DESTDIR=$(tmp)/ install 
+	-rm -rf $(tmp)/usr/share/apps/kscd/cddb/
+	-rm -rf `find $(tmp) -print | grep aktion`
+	cp debian/*.override $(tmp)/usr/share/lintian/overrides/
+	for i in `ls $(tmp)/usr/share/lintian/overrides/`; do \
+		mv $(tmp)/usr/share/lintian/overrides/$$i $(tmp)/usr/share/lintian/overrides/`echo $$i | sed -e 's#.override##'`; \
+	done
+	echo "[CDDB]" > $(tmp)/etc/kde2/kscdrc
+	echo "LocalBaseDir=/var/lib/cddb/" >> $(tmp)/etc/kde2/kscdrc
+	echo "[General]" >> $(tmp)/etc/kde2/kscdrc
+	echo "UnixMailCommand=/usr/bin/mail -s \"%s\"" >> $(tmp)/etc/kde2/kscdrc 
+	echo "DOCKING=1" >> $(tmp)/etc/kde2/kscdrc
+	for i in `find debian/ -type l -name "common"`; do \
+		rm $$i ;\
+		ln -s ../common $$i ;\
+	done
+	dh_undocumented
+	dh_installman -a
+	dh_movefiles -a --sourcedir=debian/kdemultimedia-dev
+	-mv debian/kmidi/usr/share/applnk/Multimedia/timidity.desktop \
+		debian/kmidi/usr/share/applnk/Multimedia/ktimidity.desktop
+	-mv debian/kmidi/etc/kde2/kmidi/timidity.cfg \
+		debian/kmidi/etc/kde2/ktimidity.cfg
+	dh_installdocs -a
+	dh_installmenu -a
+	dh_installmime -a
+	dh_installchangelogs -pkdemultimedia-dev
+	dh_installchangelogs -partsbuilder
+	dh_installchangelogs -pkmid kmid/ChangeLog
+	dh_installchangelogs -pkmidi kmidi/ChangeLog
+	dh_installchangelogs -pkmix
+	dh_installchangelogs -pnoatun
+	dh_installchangelogs -pkscd kscd/ChangeLog
+	dh_installchangelogs -pmpeglib mpeglib/CHANGES
+	dh_installchangelogs -plibarts-mpeglib
+	dh_strip -a
+	dh_link -a
+	dh_compress -a -X.docbook -X.css -X-license -X.dcl -X.bz2
+	dh_fixperms -a
+	dh_makeshlibs -a -V
+	dh_installdeb -a
+	dh_shlibdeps -a -l`pwd`/debian/noatun/usr/lib:`pwd`/debian/artsbuilder/usr/lib:`pwd`/debian/kmid/usr/lib:`pwd`/debian/libarts-mpeglib/usr/lib:`pwd`/debian/mpeglib/usr/lib
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+# Below here is fairly generic really
+
+binary:		binary-indep binary-arch
+
+.PHONY: binary binary-arch binary-indep clean

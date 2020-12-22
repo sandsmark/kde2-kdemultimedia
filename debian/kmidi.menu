@@ -1,0 +1,16 @@
+?package(kmidi):\
+	needs=x11\
+	section=Apps/Sound\
+	hints="KDE"\
+	kderemove="y"\
+	title="KMidi"\
+	command=/usr/bin/kmidi
+
+?package(kmidi):\
+	needs=x11\
+	section=Apps/Sound\
+	hints="KDE"\
+	kderemove="y"\
+	title="KTimidity"\
+	command="/usr/bin/ktimidity -iavt"
+

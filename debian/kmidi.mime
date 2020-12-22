@@ -1,0 +1,2 @@
+audio/x-midi; kmidi   %s;test=test "$DISPLAY" != ""; priority=5
+audio/x-karaoke; kmidi   %s;test=test "$DISPLAY" != ""; priority=5

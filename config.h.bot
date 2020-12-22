@@ -1,0 +1,23 @@
+
+/* this is for Tru64 Unix (alias OSF, alias Digital Unix) */
+
+#ifdef __osf__
+#include <assert.h>
+#include <sys/types.h>
+#include <stdarg.h>          /* va_start and the like */
+#ifdef __cplusplus
+extern "C" {
+#endif
+int vsnprintf(char *str, size_t n, char const *fmt, va_list ap);
+int snprintf(char *str, size_t n, char const *fmt, ...);
+#ifdef __cplusplus
+}
+#endif
+
+#ifdef __cplusplus  
+extern "C" void usleep(unsigned int);
+#else
+void usleep(unsigned int);
+#endif
+
+#endif

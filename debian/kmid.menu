@@ -1,0 +1,8 @@
+?package(kmid):\
+	needs=x11\
+	section=Apps/Sound\
+	hints="KDE"\
+	kderemove="y"\
+	title="KMid"\
+	command=/usr/bin/kmid
+

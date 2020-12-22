@@ -1,0 +1,93 @@
+#MIN_CONFIG
+
+dnl Checks for header files.
+AC_HEADER_DIRENT
+AC_HEADER_STDC
+AC_CHECK_HEADERS(fcntl.h sys/time.h unistd.h linux/awe_voice.h awe_voice.h /usr/src/sys/i386/isa/sound/awe_voice.h /usr/src/sys/gnu/i386/isa/sound/awe_voice.h linux/ucdrom.h sys/stdtypes.h sys/filio.h sys/audioio.h Alib.h sys/sem.h string.h getopt.h machine/endian.h sys/awe_voice.h)
+AC_CHECK_FUNCS(usleep snprintf)
+
+AC_ARG_WITH(alsa, [  --with-alsa             use an alternative driver for GUS],
+[
+   if test $withval = "yes"; then
+     kde_with_alsa=yes
+   else
+     kde_with_alsa=no
+  fi
+], kde_with_alsa=no)
+
+if test "$ac_header_sys_soundlib_h" = "no"; then
+  kde_with_alsa=no
+fi
+ 
+if test "$kde_with_alsa" = "yes"; then
+  AC_DEFINE(ALSA, 1, [Define if you have Alsa support])
+fi
+
+AC_MSG_CHECKING(machine architecture)
+AC_SUBST(ARCH_TYPE)
+ARCH_TYPE=`uname -m`
+if test `uname -s` = "FreeBSD"
+then
+	HW_MODEL=`sysctl -n hw.model`
+
+	case "$HW_MODEL" in
+		"Pentium II/Pentium II Xeon/Celeron")
+			ARCH_TYPE="i686"
+		;;
+	esac
+fi;
+AC_MSG_RESULT($ARCH_TYPE)
+
+AC_MSG_CHECKING(for a binutils new enough to support MMX)
+	as_ver=`echo|as -v 2>&1|grep ".*version.*"`
+	if test -z "$as_ver"
+	then
+		MMX_SUPPORT="no"
+	else
+		as_ver=`echo $as_ver |sed -e "s/.*version //;s/ .*//"`
+		as_major=`echo $as_ver |cut -d. -f1`
+		if test $as_major -gt 2
+		then
+			MMX_SUPPORT="yes"
+		else
+			if test $as_major -lt 2
+			then
+				MMX_SUPPORT="no"
+			else
+				as_minor=`echo $as_ver |cut -d. -f2`
+				if test $as_minor -ge 10
+				then
+					MMX_SUPPORT="yes"
+				else
+					MMX_SUPPORT="no"
+				fi
+			fi
+		fi
+	fi
+	AC_MSG_RESULT($MMX_SUPPORT)
+
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_TIME
+CXXFLAGS="$CXXFLAGS -DQT_CLEAN_NAMESPACE -DQT_NO_COMPAT -DQT_NO_ASCII_CAST"
+
+dnl check if the assembler supports SSE instructions
+AC_MSG_CHECKING([for x86 SSE instructions])
+AC_CACHE_VAL(ac_cv_x86_sse,
+[
+AC_TRY_COMPILE(,
+[
+#if defined(__GNUC__) && defined(__i386__)
+__asm__("movups %xmm0, (%esp)");
+#else
+#error Not gcc on x86
+#endif
+],
+ac_cv_x86_sse=yes,
+ac_cv_x86_sse=no)
+])
+AC_MSG_RESULT($ac_cv_x86_sse)
+if eval "test \"`echo `$ac_cv_x86_sse\" = yes"; then
+	    AC_DEFINE(HAVE_X86_SSE,1,
+		        [Define if your assembler supports x86 SSE instructions])
+fi

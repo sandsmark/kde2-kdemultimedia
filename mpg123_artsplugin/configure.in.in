@@ -1,0 +1,46 @@
+dnl ============
+dnl Machine type
+dnl ============
+ 
+ARCH_CFLAGS="$CFLAGS -O2 -funroll-all-loops -finline-functions -ffast-math"
+
+case "$ARCH_TYPE" in
+	i486)
+		AC_DEFINE(ARCH_486, 1, [WE ARE BUILDING FOR A 486])
+		OPTIMIZED_ARCH="YES"
+	;;
+	i586)
+		AC_DEFINE(ARCH_586, 1, [WE ARE BUILDING FOR A PENTIUM])
+		OPTIMIZED_ARCH="YES"
+	;;
+	i686)
+		AC_DEFINE(ARCH_686, 1, [WE ARE BUILDING FOR A PPRO])
+		OPTIMIZED_ARCH="YES"
+		#EXTRA_CPU_CFLAGS=$(if $CC -march=i686 -S -o /dev/null -xc /dev/null > /dev/null; then echo "-march=i686"; fi)
+	;;
+	ppc)
+		AC_DEFINE(ARCH_PPC, 1, [WE ARE BUILDING FOR A POWERPC])
+		OPTIMIZED_ARCH="YES"
+	;;
+	sun4u)
+		AC_DEFINE(ARCH_ULTRA, 1, [WE ARE BUILDING FOR A SUN ULTRASPARC])
+		# Is there mpg123 optimization for UltraSparc?
+	;;
+esac
+
+AM_CONDITIONAL(ARCH_X86,test "$ARCH_TYPE" = "i486" || test "$ARCH_TYPE" = "i586" || test "$ARCH_TYPE" = "i686" )
+AM_CONDITIONAL(ARCH_486,test "$ARCH_TYPE" = "i486")
+AM_CONDITIONAL(ARCH_586,test "$ARCH_TYPE" = "i586" -a "$MMX_SUPPORT" = "no")
+AM_CONDITIONAL(ARCH_586_MMX,test "$ARCH_TYPE" = "i586" -a "$MMX_SUPPORT" = "yes")
+AM_CONDITIONAL(ARCH_686,test "$ARCH_TYPE" = "i686" -a "$MMX_SUPPORT" = "no")
+AM_CONDITIONAL(ARCH_686_MMX,test "$ARCH_TYPE" = "i686" -a "$MMX_SUPPORT" = "yes")
+AM_CONDITIONAL(ARCH_PPC,test "$ARCH_TYPE" = "ppc")
+AM_CONDITIONAL(ARCH_ULTRA,test "$ARCH_TYPE" = "sun4u")
+AM_CONDITIONAL(ARCH_PLAIN, test -z "$OPTIMIZED_ARCH")
+ 
+AC_SUBST(ARCH_CFLAGS)
+
+if test "$kde_mpeglib_compiles" = "yes"
+then
+DO_NOT_COMPILE="$DO_NOT_COMPILE mpg123_artsplugin"
+fi

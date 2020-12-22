@@ -1,0 +1,98 @@
+    /*
+
+    Copyright (C) 2000 Stefan Westerfeld
+                       stefan@space.twc.de
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Library General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+  
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Library General Public License for more details.
+   
+    You should have received a copy of the GNU Library General Public License
+    along with this library; see the file COPYING.LIB.  If not, write to
+    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+    Boston, MA 02111-1307, USA.
+
+    */
+
+/*
+ * DISCLAIMER: The interfaces in artsgui.idl (and the derived .cc/.h files)
+ *             DO NOT GUARANTEE BINARY COMPATIBILITY YET.
+ *
+ * They are intended for developers. You shouldn't expect that applications in
+ * binary form will be fully compatibile with further releases of these
+ * interfaces.
+ */
+
+module Arts {
+	interface Widget {
+		readonly attribute long widgetID;
+
+		attribute Widget parent;
+		attribute long x,y,width,height;
+		attribute boolean visible;
+
+		void show();
+		void hide();
+	};
+
+	interface HBox : Widget {
+	};
+
+	interface VBox : Widget {
+	};
+
+	interface Button : Widget {
+		attribute string text;
+	};
+
+	interface Poti : Widget {
+		// FIXME: text should probably be called caption here
+		attribute string text, color;
+		attribute float min, max, value;
+	};
+
+	interface LineEdit : Widget {
+		attribute string caption;
+		attribute string text;
+	};
+
+	interface SpinBox : Widget {
+		attribute string caption;
+		attribute long min, max, value;
+	};
+
+	interface ComboBox : Widget {
+		attribute string caption;
+		attribute sequence<string> choices;
+		attribute string value;
+	};
+
+	/**
+	 * A gui factory is an object that can create a Widget which provides a
+	 * user interface for a running object (for instance, you might have an
+	 * effect running somewhere, and a gui factory 
+	 *
+	 * TODO: do we need another argument (or other arguments) to specify
+	 * style or other parameters?
+	 */
+	interface GuiFactory {
+		Widget createGui(object runningObject);
+	};
+
+	/**
+	 * Convenience gui factory, which knows how and whether to
+	 *
+	 *  - build a gui out of hints?
+	 *  - create an artsbuilder built gui?
+	 *  - create a gui composed of other widgets?
+	 *  - create a completely custom gui?
+	 */
+	interface GenericGuiFactory : GuiFactory {
+	};
+};

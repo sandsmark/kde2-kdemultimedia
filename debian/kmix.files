@@ -1,0 +1,16 @@
+usr/lib/libkcm_kmix.la
+usr/lib/libkmixapplet.la
+usr/lib/kmixctrl.la
+usr/lib/libkmixapplet.so.*
+usr/lib/libkcm_kmix.so
+usr/lib/kmixctrl.so
+usr/share/applnk/Settings/Sound/kmix.desktop
+usr/share/applnk/Multimedia/kmix.desktop
+usr/share/apps/kicker/applets/kmixapplet.desktop
+usr/share/apps/kmix/*
+usr/share/icons/hicolor/*/apps/kmix.*
+usr/share/services/kmixctrl_restore.desktop
+usr/bin/kmix
+usr/bin/kmixctrl
+usr/share/doc/kde/HTML/en/kmix/*
+usr/share/lintian/overrides/kmix

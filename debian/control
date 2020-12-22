@@ -1,0 +1,88 @@
+Source: kdemultimedia
+Build-Depends: debhelper (>> 3.0.0), kdelibs-dev (>= 4:2.2.2-1), libarts-dev (>= 4:2.2.2-1), libkmid-dev (>= 4:2.2.2-1), automake (>= 1:1.4-p4-1.1), autoconf, libtool, libcdaudio0-dev, libcdparanoia0-dev, libogg-dev, libvorbis-dev, libncurses5-dev | libncurses-dev, slang1-dev, libxaw7-dev | libxaw-dev, libasound2-dev (>= 0.9.0beta7-1)
+Build-Conflicts: noatun (<< 4:2.2-0), libmpeglib0
+Section: sound
+Priority: optional
+Maintainer: Ivan E. Moore II <rkrusty@debian.org>
+Standards-Version: 3.5.6
+
+Package: kdemultimedia-dev
+Architecture: any
+Section: devel
+Replaces: libmpeglib-dev, libmpeg-dev
+Depends: artsbuilder (= ${Source-Version}), noatun (= ${Source-Version}), mpeglib (= ${Source-Version}), kdelibs-dev, libcdparanoia0-dev, libcdaudio0-dev, libogg-dev, libvorbis-dev
+Conflicts: libmpeglib-dev, libmpeg-dev
+Description: KDE multimedia libraries (development files)
+ KDE multimedia development libraries for the kdemultimedia package 
+
+Package: artsbuilder
+Architecture: any
+Section: sound
+Replaces: arts
+Depends: ${shlibs:Depends}, mpeglib (= ${Source-Version}), kdebase-libs
+Description: Arts synthesizer designer
+ This is the analog real-time synthesizer graphical design tool.
+
+Package: noatun
+Architecture: any
+Section: sound
+Depends: ${shlibs:Depends}, libarts-mpeglib (= ${Source-Version}), mpeglib (= ${Source-Version}), kdebase-libs
+Suggests: noatun-plugins
+Provides: mp3-decoder
+Description: Media player (for video and audio)
+ Media player (for video and audio) for KDE
+
+Package: kmid
+Architecture: any
+Section: sound
+Depends: ${shlibs:Depends}, kdebase-libs
+Description: midi/karaoke player for KDE
+ midi/karaoke player for KDE
+
+Package: kmidi
+Architecture: any
+Section: sound
+Depends: ${shlibs:Depends}, kdebase-libs
+Provides: timidity
+Suggests: timidity-patches
+Description: midi-to-wav player/converter for KDE
+ midi-to-wav player/converter for KDE
+
+Package: kmix
+Architecture: any
+Section: sound
+Depends: ${shlibs:Depends}, kdebase-libs, procps
+Description: KDE based mixer app
+ This is a KDE based mixer app
+
+Package: mpeglib
+Architecture: any
+Section: libs
+Replaces: libmpeglib0
+Depends: ${shlibs:Depends}
+Conflicts: libmpeglib0
+Recommends: libarts-mpeglib
+Provides: mp3-decoder
+Description: mp3 and mpeg I video/audio library for linux
+ mpeglib is a mp3 and mpeg I video/audio library for linux
+ .
+   mpeg I audio player (layer I,II,III (mp3))
+   mpeg I video player
+   mpeg I system layer player
+   wav player
+
+Package: libarts-mpeglib
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, mpeglib
+Description: mpeglib is a mp3 and mpeg I video/audio library (Arts plugin)
+ mpeglib is a mp3 and mpeg I video/audio library for linux
+ .
+ This is the arts (KDE Sound daemon) plugin
+ 
+Package: kscd
+Architecture: any
+Section: sound
+Depends: ${shlibs:Depends}, kdebase-libs, cddb
+Description: KDE based cd player
+ This is a KDE based cd player

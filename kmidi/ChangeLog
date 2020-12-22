@@ -1,0 +1,754 @@
+2000-08-25  Greg Lee  <lee@hawaii.edu>
+
+	* alsa_a.cpp: various refinements
+	* configdlg.cpp: change outdated Izumo web address
+
+2000-08-23  Greg Lee  <lee@hawaii.edu>
+
+	* TIMIDITY/makelinks must be run at compile time
+	* change name of "About" button on main menu bar to "Help"
+	* change names of buttons in file dialog (again)
+	* current QT no longer works with insert(0, ...) for
+	  QStringList -- change to prepend(...)
+	* copy of argv pointers made in midiapplication.cpp can
+	  no longer be deleted, since it's later used by the
+	  crashhandler
+	* fix the alsa_a.cpp driver
+	* b_out.cpp: support for alsa driver
+
+2000-07-15  Greg Lee  <lee@hawaii.edu>
+
+	* TIMIDITY/gtk_i.c: implement load playlist
+	* playmidi.cpp: import change from TiMidity++ 2.95
+	* TIMIDITY/xaw_c.c: fix change song locator (bar
+	  still not shown)
+
+2000-07-09  Greg Lee  <lee@hawaii.edu>
+
+	* kmidifiledialog: fix open file dialog
+
+2000-07-07  Greg Lee  <lee@hawaii.edu>
+
+	* Makefile.am, config.h: path for config file was wrong
+	* move patch dir down inside config dir
+
+Sat May 27 11:11:56 2000  Dirk Försterling  <milliByte@gmx.de>
+
+	* added font size calculation (fix 100dpi problem)
+
+2000-03-06  Greg Lee  <lee@hawaii.edu>
+
+	* spruce up xaw
+
+2000-03-04  Greg Lee  <lee@hawaii.edu>
+
+	* xaw load file
+	* timidity.desktop
+
+2000-03-02  Greg Lee  <lee@hawaii.edu>
+
+	* fix motif "not child" error messages
+	* move tk and motif src to TIMIDITY dir
+
+2000-02-29  Greg Lee  <lee@hawaii.edu>
+
+	* fix motif & xaw hanging after next
+	* fix tk sync
+
+2000-02-28  Greg Lee  <lee@hawaii.edu>
+
+	* fix glib configuration
+	* move motif files to TIMIDITY
+	* fix motif configure
+	* fix xaw sync
+
+2000-02-27  Greg Lee  <lee@hawaii.edu>
+
+	* reorganize source dir; timidity to subdir
+	  TIMIDITY and is configured and compiled
+	* new timidity GTK+ interface
+
+2000-02-25  Greg Lee  <lee@hawaii.edu>
+
+	* remove file constants.h
+	* configure is not finding slang.h
+
+2000-02-24  Greg Lee  <lee@hawaii.edu>
+
+	* set active color palette to same as normal
+	* add id argument to b_out
+	* add artsd output i.f.
+	* temporary fix for timidity config
+
+2000-01-24  Greg Lee  <lee@hawaii.edu>
+
+	* fix output esd interface (flag -Oe)
+	* add output interface for linux 2nd
+	  soundcard (flag -Od)
+	* make "-O<letter>" a cfg file option
+
+2000-01-22  Greg Lee  <lee@hawaii.edu>
+
+	* fix kmidi reading commandline files
+	* mark unplayable files on playlist
+	* fix flicker in channel view
+
+2000-01-17  Greg Lee  <lee@hawaii.edu>
+
+	* handle ncurses window resizing
+	* sync ncurses and slang trace display
+	* patch names for ncurses and slang
+	* color and F-key labels for ncurses
+
+2000-01-16  Greg Lee  <lee@hawaii.edu>
+
+	* during loading stop when user says don't
+	  play this file
+	* be more careful not to exceed max patch memory
+	* fix ncurses screen blanking bug
+	* fix bug causing some soundfonts to be read more
+	  than once
+	* report missing patches by general-midi name
+
+2000-01-12  Greg Lee  <lee@hawaii.edu>
+
+	* look ahead to estimate needed polyphony
+
+2000-01-10  Greg Lee  <lee@hawaii.edu>
+
+	* fix timidity-only compile of xaw and motif i-f
+	* open-file dialog not modal
+
+2000-01-05  Greg Lee  <lee@hawaii.edu>
+
+	* selected commandline options also settable
+	  in timidity.cfg, documented in timidity.1
+	* add commandline options for expression and
+	  volume curves
+	* allow for commandline argument "-icon"
+	* optimization compiler options
+
+2000-01-04  Greg Lee  <lee@hawaii.edu>
+
+	* kde interface is no longer started up if
+	  commandline has "-h" for help or if some other
+	  interface is requested ("-id"/"-in"/"-is")
+	* added ncurses and slang alternative interfaces
+
+2000-01-02  Greg Lee  <lee@hawaii.edu>
+
+	* cfg.l: replace read_config_file()
+	* adjust tuning in cfg files
+	* add vol/expression curve to menus
+	* add "surround" option
+	* fix drum vol bug
+	* add some credits to timidity.1
+	  document tuning adjustment
+
+1999-12-26  Greg Lee  <lee@hawaii.edu>
+
+	* changed more float to double
+
+1999-12-25  Greg Lee  <lee@hawaii.edu>
+
+	* playmidi.cpp: increase stereo separation
+	* instrum.cpp: demote some error msgs to info
+	* tables.cpp: expression table
+	* sndfont.cpp,sf2cfg.cpp: allow for percussion
+	  key ranges
+	* linux_a.c: use OSS GETOPTR
+	* b_out.c: fill buffer at start up
+
+1999-12-24  Greg Lee  <lee@hawaii.edu>
+
+	* fix multiple references to soundfonts
+
+1999-12-22  Greg Lee  <lee@hawaii.edu>
+
+	* fix error messages
+
+1999-12-21  Greg Lee  <lee@hawaii.edu>
+
+	* disable qmultilineedit undo
+
+1999-12-20  Greg Lee  <lee@hawaii.edu>
+
+	* fix display sync problem
+	* make expression and volume controllers
+	  nonlinear
+	* change `float' to `double'
+
+1999-12-15  Greg Lee  <lee@hawaii.edu>
+
+	* fix setting global reverb and chorus depth
+
+1999-12-14  Greg Lee  <lee@hawaii.edu>
+
+	* bar graphics for channel view
+	* sndfont.cpp: percussion should not be dry
+
+1999-12-13  Greg Lee  <lee@hawaii.edu>
+
+	* configure.in.in: define NO_STRING_H (to
+	  make bero's changes interpretable
+	* config.h: define NO_STRING_H for timidity
+	* readmidi.cpp: bulletproofing against bad
+	  midi files
+
+1999-12-12  Greg Lee  <lee@hawaii.edu>
+
+	* channel view window
+
+1999-12-09  Greg Lee  <lee@hawaii.edu>
+
+	* fix bugs in chorus and key-to-release
+	  modification
+	* fix some type conversions
+
+1999-12-08  Greg Lee  <lee@hawaii.edu>
+
+	* compile all with c++ for better
+	  type checking
+
+1999-12-05  Greg Lee  <lee@hawaii.edu>
+
+	* receive orders via dcop
+
+1999-12-04  Greg Lee  <lee@hawaii.edu>
+
+	* instrum.c,playmidi.c: bug fixes
+	  from TiM++ 2.8.0
+	* port alsa and (2nd) hpux drivers (untested)
+	* port bsdi, esd, nas drivers
+
+1999-12-03  Greg Lee  <lee@hawaii.edu>
+
+	* configuration from TiMidity++
+
+1999-12-02  Greg Lee  <lee@hawaii.edu>
+
+	* first commandline file didn't play
+	  because patches weren't initialized
+	  (because of new KUniqueApp behavior)
+	* timidity no longer looks first in the
+	  current directory for patches
+	* commandline files are now passed to
+	  the playlist editor with full path names
+	* the directory path list is now cleared
+	  before a new set of patches is read
+
+1999-11-30  Greg Lee  <lee@hawaii.edu>
+
+	* mmap soundfont files
+	* split up some source
+
+1999-11-29  Greg Lee  <lee@hawaii.edu>
+
+	* pass commandline from new instance
+
+1999-11-27  Greg Lee  <lee@hawaii.edu>
+
+	* add menu bar
+
+1999-11-24  Greg Lee  <lee@hawaii.edu>
+
+	* redid array references in resampling code
+
+1999-11-23  Greg Lee  <lee@hawaii.edu>
+
+	* Makefile.am: change -O2 to -O to avoid
+	  core dumps (egcs-1.1.2)
+	* kmidi.cpp: made kmidi a unique application;
+	  registered with dcop; added stuff about
+	  restoring (untested)
+
+1999-11-22  Greg Lee  <lee@hawaii.edu>
+
+	* fixed core dump during LaGrange interpolation
+	  by eliminating some preprocessor defines (!)
+	* sndfont.c: sustain points for tremolo strings,
+	  fiddle, helicopter
+	* note off's are more gradual
+
+1999-11-21  Greg Lee  <lee@hawaii.edu>
+
+	* got a core dump (mix.c) using -O3, so
+	  it's back to -O2
+	* added the utility sf2cfg
+	* sun_a.c: untested revisions
+
+1999-11-20  Greg Lee  <lee@hawaii.edu>
+
+	* sndfont.c: adjust sample volumes
+	* kmidi.cpp: add display/set time slider
+
+1999-11-19  Greg Lee  <lee@hawaii.edu>
+
+	* sndfont.c: adjust sample volumes
+	* timidity shouldn't read entire soundfont
+	  files if it has fewer than 3 files to play.
+	* ctl.c: didn't initialize first patchset
+
+1999-11-18  Greg Lee  <lee@hawaii.edu>
+
+	* read entire sf files
+
+1999-11-16  Greg Lee  <lee@hawaii.edu>
+
+	* add references to patch sets
+	  in configuration window
+
+1999-11-15  Greg Lee  <lee@hawaii.edu>
+
+	* use new docking
+	* leds a little taller
+	* status led starts out red
+	* propagated bug fix reported for 1.1.2
+
+1999-11-14  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: image for whatthis button
+	* playlist.cpp: doubleclick on playlist
+	  file appends contents to play list
+	* disabled IW patch support, since it
+	  now dumps core
+
+1999-11-13  Greg Lee  <lee@hawaii.edu>
+
+	* fix bug in envelope calculation
+	* resample.c: bidir patch with loop end
+	  at sample end caused core dump
+
+1999-11-10  Greg Lee  <lee@hawaii.edu>
+
+	* more whatsthis help
+	* ask for compiler warnings (whew!)
+
+1999-11-09  Greg Lee  <lee@hawaii.edu>
+
+	* add whatsthis help
+
+1999-11-08  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: fix accept drops
+
+1999-11-07  Greg Lee  <lee@hawaii.edu>
+
+	* max mem for patches now configurable
+	* readmidi.c: fix XG initialization bug
+	* kmidi.cpp: checkboxes on lower panel configurable
+
+1999-11-06  Greg Lee  <lee@hawaii.edu>
+
+	* better memory management
+	* made se in resample.. uint32
+
+1999-11-05  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: checkboxes select interpolation;
+	  reorganize leds; add lyrics led
+
+1999-11-04  Greg Lee  <lee@hawaii.edu>
+
+	* synchronize lyrics
+
+1999-11-03  Greg Lee  <lee@hawaii.edu>
+
+	* disable lp filter and c-spline interpolation
+	  (except filter still works for drums when first loaded)
+
+1999-11-02  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: smooth song time display; stop
+	  button positions first song in new playlist
+	* playlist.cpp: now a KTMainWindow
+
+1999-11-01  Greg Lee  <lee@hawaii.edu>
+
+	* b_out.c: disable filling of entire buffer
+	  on start up to get meter display started
+
+1999-10-31  Greg Lee  <lee@hawaii.edu>
+
+	* log.cpp: keep only 100 lines in the QMLE
+	* mix.c,resample.c: don't notify interface of
+	  finished notes twice
+	* playmidi.c: XG flanger (too fast?)
+	* kmidi.cpp,ctl.c: improve meter display
+
+1999-10-30  Greg Lee  <lee@hawaii.edu>
+
+	* ctl.c/kmidi.cpp: improve meter display (still no
+	  good at sustained notes)
+	* kmidi.cpp: flag changes in playlist
+
+1999-10-29  Greg Lee  <lee@hawaii.edu>
+
+	* get docking and resizing to work better
+
+1999-10-28  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: try to straighten out resizing;
+	  add arg to KApplication
+	* sndfont.c: don't use lfo to modulate filter cutoff
+	  when initial filter cutoff has not been set
+
+1999-10-27  Greg Lee  <lee@hawaii.edu>
+
+	* made kmidi a KTMainWindow
+	* stole docking routine from kscd
+
+1999-10-26  Greg Lee  <lee@hawaii.edu>
+
+	* playmidi.c: longer echo delays
+
+1999-10-24  Greg Lee  <lee@hawaii.edu>
+
+	* resample.c: fixed bug in note terminations
+	  but now it sounds worse (clicks)
+	* b_out.c: lie about room in buffer at start up
+	  to prevent too much polyphony at beginning of
+	  some songs
+	* playmidi.c: try harder to prevent dropouts;
+	  revise detuning
+	* config/piano+guitar: strip envelope of guitar
+	  for strings
+	* ctl.c: kmidi shouldn't kill timidity on exit
+	* kmidi.cpp: rename reverb/chorus to echo/detune
+	* effects.c: route XG phaser request to phaser filter
+
+1999-10-23  Greg Lee  <lee@hawaii.edu>
+
+	* playmidi.c: fix panning
+	* make files: -O3 dumps core in resample.c -
+	  -O2 for C-code seems ok (using egcs1.1.2)
+
+1999-10-22  Greg Lee  <lee@hawaii.edu>
+
+	* playmidi.c,resample.c: be more careful about
+	  terminating notes (no VOICE_DIE now)
+	* reworked reverberation
+
+1999-10-21  Greg Lee  <lee@hawaii.edu>
+
+	* resample.c: smooth off ends of patches
+	  (but ocarina, vibes, pan flute still click)
+	* config.h: up FRACTION_BITS to 13
+	* playmidi.c: more polyphony reduction
+	* kmidi.cpp: led flashes yellow when loading patches
+
+1999-10-20  Greg Lee  <lee@hawaii.edu>
+
+	* avoid compiler warnings
+	* Makefile.am: try -O4 -Wall
+	* ../configure.in.in: make it work again
+
+1999-10-19  Greg Lee  <lee@hawaii.edu>
+
+	* sample vibrato and modulation delay
+	* kmidi.cpp: remember states of effects and filter buttons;
+	  leds for chorus and reverb
+
+1999-10-18  Greg Lee  <lee@hawaii.edu>
+
+	* implement lfo freq modulation
+	* unload least recently used patches
+
+1999-10-16  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: move leds higher; fix meter sync
+	* sndfont.c: revise vibrato/tremolo calculation;
+	  fix long delays (e.g. soprano sax)
+	* resample.c: modulate pitch except for drums
+
+1999-10-15  Greg Lee  <lee@hawaii.edu>
+
+	* sndfont.c/playmidi.c: implement pitch effect
+	  on volume envelope and modulation envelope
+	  on pitch (latter only for inst. with vibrato)
+	* kmidi.cpp/ctl.c,h: leds
+
+1999-10-13  Greg Lee  <lee@hawaii.edu>
+
+	* resample.c: portamento was continuing forever;
+	  found typo in #define
+	* mix.c: finish mixing freed voices faster
+	* instrum.c,fffload.c: zero new sample parameters
+	* kmidi.c: delay starting up meter and info windows
+
+1999-10-12  Greg Lee  <lee@hawaii.edu>
+
+	* resample.c: on key-up play tail of patch
+
+1999-10-11  Greg Lee  <lee@hawaii.edu>
+
+	* sndfont.c/resample.c: modulate cutoff filter
+	* resample.c: cast right-shifted number to signed
+
+1999-10-09  Greg Lee  <lee@hawaii.edu>
+
+	* resample.c: cutoff filter is faster
+
+1999-10-08  Greg Lee  <lee@hawaii.edu>
+
+	* resample.c: change cutoff filter - ignore resonance
+
+1999-10-07  Greg Lee  <lee@hawaii.edu>
+
+	* sndfont.c: ad hoc envelope mode per program
+	* ctl.c: kill child on exit
+	* working on lyrics
+
+1999-10-06  Greg Lee  <lee@hawaii.edu>
+
+	* log.cpp/.h: clean up code
+	* fixes from Masanao Izumo
+	* playmidi.c: don't display text if have lyrics
+	* sndfont.c: shorten loading messages
+
+1999-10-04  Greg Lee  <lee@hawaii.edu>
+
+	* playmidi.c: implement octave and fifth XG variation banks;
+	  better control of dropouts
+	* timidity.1: note new features and authors
+	* kmidi.desktop: icon and doc names
+
+1999-10-03  Greg Lee  <lee@hawaii.edu>
+
+	* b_out.c: forgot to reset out_bytes after purge
+	* playmidi.c,readmidi.c: some interpretation of XG variation banks
+	* playmidi.c: fix volume envelope changes, allocation of
+	  stereo voices
+	* mix.c: fix from TiMidity++ for notes with very low volumes
+	* playlist.cpp: fix "QGArray" out of bounds message
+	* sndfont.c: set modes according to SF2 spec
+
+1999-10-02  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: filter on/off button
+	* work on filter and voice reduction
+
+1999-10-01  Greg Lee  <lee@hawaii.edu>
+
+	* linux_a.c,b_out.c: fix purge_output, redo
+	  get_outcount for meter sync
+	* resample.c: low pass filter
+	* playmidi.c: implement midi brightness, harmonics;
+	  voice reduction
+	* config.h: cspline interpolation
+
+1999-09-30  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: percussion decays faster on meter
+	* output.c,playmidi.c: count clipped samples;
+	  lower volume
+	* b_out.c: non-blocking output works now
+	* b_out.c,playmidi.c: try prevent dropouts
+	* sndfont.c: filter percussion patches
+
+1999-09-29  Greg Lee  <lee@hawaii.edu>
+
+	* sndfont.c: don't load velocity ranges from
+	  different fonts
+
+1999-09-28  Greg Lee  <lee@hawaii.edu>
+
+	* sndfont.c: fix compound instruments with
+	  keyranges in presets
+
+1999-09-27  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: make info and meter windows independent
+
+1999-09-26  Greg Lee  <lee@hawaii.edu>
+
+	* config/piano+guitar,drums: more substitution
+	* playlist.cpp: "select all" edit command
+	* kmidi.cpp, log.cpp: put info window in panel
+	* playmidi.c: fix reverb bug
+	* timidity.c: note new options in help message
+	* playmidi.c: show lyrics even with quiet option
+	* sbk.h, sbktext.c: terminate name strings
+
+1999-09-20  Greg Lee  <lee@hawaii.edu>
+
+	* sf2 volume envelopes
+	* sf2 peak envelope
+	* "count" variables to unsigned
+	* sf2 vel ranges of stereo patches
+
+1999-09-17  Greg Lee  <lee@hawaii.edu>
+
+	* sf2 volume envelopes (not quite right yet)
+
+1999-09-14  Greg Lee  <lee@hawaii.edu>
+
+	* sf2 velocity layers
+
+1999-09-11  Greg Lee  <lee@hawaii.edu>
+
+	* tables.c: GS volumes from TiMidity++
+	* resample.c: fix core dumps
+	* playmidi.c: implement exclusive instruments
+	* sndfont.c: volume & pitch computations
+
+1999-09-08  Greg Lee  <lee@hawaii.edu>
+
+	* remove config/sndfont.cfg: obsolete
+	* kmidi.cpp: tweak meter display
+	* *_c.c: update other interfaces to merge extra channels
+	* sndfont.c: enable stereo patch support
+
+1999-09-06  Greg Lee  <lee@hawaii.edu>
+
+	* up 16 channels to 64 (32 on meter display)
+	* effects.c: obey echo_delay
+	* timidity.c: scan over TiMidity++ "map" statements
+
+1999-08-27  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp: check dropped file is readable midi file
+
+1999-08-26  Greg Lee  <lee@hawaii.edu>
+
+	* config.h: up controls/sec, FRACTINT, MAX_VOICES
+	* configdlg.cpp/h: use KColorButton
+	* kmidi.desktop: I play karaoke
+	* kmidi.cpp/h: accept drops
+
+1999-08-23  Greg Lee  <lee@hawaii.edu>
+
+	* install sample midis in appdata
+	* add spinbox to sync channel meter
+
+1999-08-22  Greg Lee  <lee@hawaii.edu>
+
+	* panel control of stereo/reverb/chorus voice & verbosity
+	* midi channel pressure
+	* log.cpp: set text window to read-only (no special reason)
+
+1999-08-21  Greg Lee  <lee@hawaii.edu>
+
+	* spinbox for polyphony; meter colors configurable
+
+1999-08-15  Greg Lee  <lee@hawaii.edu>
+
+	* configdlg.cpp/h, kmidi.cpp: redo to use KTabCtl, KAboutWidget
+	* kmidi.cpp: add select song Combobox to KMidi panel
+	* patch/ and config/ : better patches, sample timidity.cfg
+	  illustrates patchset selection from front panel
+	* update README, Changelog
+	* version.h: 1.3-alpha
+	* README.sf, CHANGES-ADAGIO: deleted
+
+1999-08-08  Greg Lee  <lee@hawaii.edu>
+
+	* kmidi.cpp/h: add meter display, effects button, patchset combobox,
+	  "About" mentions more authors
+	* playlist.cpp/h: add filter button, save directory in configuration
+	* timidity.c: read_config_file() recallable & save patchset names,
+	  initialize effects, add -E effects option, show interface
+	  options after -help, remove code for "order" and "exclude"
+	* playmidi.c, readmidi.c, ctl.c, new files: chorus_e.c, reberb_e.c, effect.c,
+	  celest_e.c, phaser_e.c, effects.h: Nicolas Witczak's channel effects code
+	* ctl.c, new file: ctl.h: use Panel in shared memory for meter display
+	* playmidi.c, resample.c: mod wheel & portamento from TiMidity++
+	* config.h, resample.c: alternative interpolations from TiMidity++
+	* sndfont.c: fix end_soundfont(), remove code for "order" and "exclude",
+	  fix init_soundfont bug
+	* b_out.c: don't write more than buffer-size bytes to driver
+	* linux_a.c: restore non-blocking write to /dev/dsp that was disabled
+	  by the fix mentioned just below
+
+1999-04-02  Harri Porten  <porten@kde.org>
+
+	* kmidi.cpp: prev/next bugfix from John Birch <jb.nz@writeme.com>
+	* linux_a.c: timidity fix from Martin Weghofer
+
+1999-03-29  Harri Porten  <porten@kde.org>
+
+	* ported to Qt 2.0
+
+1998-11-04  Sam Maloney  <thufir@illogic.ml.org>
+
+	* There was a problem on my system, where kmidi would look for its
+	  config file in the currenet directory. I fixed it in the config.h
+	  file.
+
+ 1998-10-18  Cristian Tibirna  <ctibirna@gch.ulaval.ca>
+
+	* Fixed a display problem in playlist.cpp
+
+Wed Jun 10 03:51:29 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
+
+	* Work on the Info Window. Improved resonse time and got rid
+	of most of the flicker.
+
+Wed Jun  3 22:13:05 HST 1998  Greg Lee <lee@hawaii.edu>
+
+	* AWE vibrato
+	* chorus depth and reverberation
+	* lyrics
+
+Mon Jun  1 19:20:00 HST 1998  Greg Lee <lee@hawaii.edu>
+
+	* AWE filters
+
+Fri May 29 15:12:00 HST 1998  Greg Lee <lee@hawaii.edu>
+
+	* merged in my version of TiMidity -- many changes:
+
+     1. Made bank or drumset statements in .cfg files global,
+	so that they have scope within subsequently "source"d files.
+     2. Allowed end of line "#" comments in .cfg files.
+     3. In playmidi.c, at the beginning of "dumb_pass_playing_list",
+	I added a statement to decrement the number of file names
+	to expect on the command line when running under Linux.
+	Timidity was segfaulting.  But maybe the Linux system I tested
+	it on had a bad version of "getopt".  I don't know.
+     4. Changed names of #define's FSCALE, FSCALENEG to FRSCALE,
+	FRSCALENEG to avoid conflict with a system #include file.
+     5. Added loading of .fff files and playing stereo patches like
+	those in the Utopia patch set. (See adagio "cfg.doc".)
+     6. Added buffering to Sun & Linux output routines (sun_a.c &
+	linux_a.c); changed Sun open of /dev/audio to accept default
+	data rate when rate request can't be honored.
+     7. Changed interpretation of envelopes so that sustain point is
+	not held when patch mode is not MODES_SUSTAIN; note off event
+	has no effect when .fff file says mode is "one-shot".
+     8. Note played is now determined by patch frequency center and
+	scaling info.
+     9. Selecting "fast decay" no longer also controls speed of
+	envelope attacks (which are now faster).
+    10. Fixed bug in readmidi.c which prevented changing banks.
+    11. Merged in Iwai's support for awe32 soundfonts.  Presets
+	with two instruments are treated like Utopia's stereo
+	patches, i.e. the two are sounded simultaneously.
+
+Sun Jan 18 08:39:01 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
+
+	* kmidi.cpp: various internal fixes and improvments
+
+Sun Sep 21 15:51:34 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* fought with autconf to get support for 
+
+	  Linux
+	  FreeBSD
+	  DEC OSF/1
+	  HP_UX
+	  SUN
+	  SUN SOLARIS
+
+	 going. Imporved docs, bug fixes.
+
+Wed Jul 23 21:45:52 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* fixed playlist bugs.
+
+Sun Jul 20 20:14:38 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* autoplay of commandline midis ( useful for netscape )
+	* replace of '_'  with ' ' and  chop off .mid and .MID extensions in the
+	  file name display.
+

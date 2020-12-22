@@ -1,0 +1,9 @@
+usr/share/apps/kmidi/*
+usr/share/applnk/Multimedia/timidity.desktop
+usr/share/applnk/Multimedia/kmidi.desktop
+usr/share/icons/hicolor/*/apps/kmidi.*
+usr/bin/ktimidity
+usr/bin/kmidi
+usr/bin/sf2cfg
+usr/share/doc/kde/HTML/en/kmidi/*
+etc/kde2/kmidi/*

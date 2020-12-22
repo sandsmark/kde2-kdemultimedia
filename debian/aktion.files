@@ -1,0 +1,10 @@
+usr/share/apps/aktion/*
+usr/share/icons/hicolor/*/apps/aktion.*
+usr/share/applnk/Multimedia/aktion.desktop
+usr/bin/aktion
+usr/lib/libaktion.la
+usr/lib/libaktion.so.1.0.0
+usr/lib/libaktion.so.1
+usr/share/doc/kde/HTML/en/aktion/*
+usr/share/lintian/overrides/aktion
+etc/kde2/aktionrc

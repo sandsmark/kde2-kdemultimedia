@@ -1,0 +1,69 @@
+# You might want to change the following 2 lines; the rest should be ok.
+Prefix: /opt/kde2
+%define qtdir /usr/lib/qt-2.1.0
+
+Name: kdemultimedia
+Icon: kde-icon.xpm
+Summary: Multimedia applications for the K Desktop Environment (KDE).
+Version: 1.90
+Release: 1
+Serial: 2
+Source: ftp://ftp.kde.org/pub/kde/stable/%{version}/distribution/tar/generic/source/%{name}-%{version}.tar.bz2
+Group: Applications/Multimedia
+BuildRoot: /var/tmp/%{name}-buildroot
+Copyright: GPL
+Requires: kdesupport
+
+%description
+The K Desktop Environment (KDE) is a GUI desktop for the X Window
+System. The kdemultimedia package contains multimedia applications for
+KDE, including kmedia, a media player; kmid, a midi/karaoke player;
+kmidi, a midi-to-wav player/converter; kmix, a mixer; and kscd, and
+audio CD player.
+
+Install kdemultimedia if you need multimedia applications for KDE. If
+you're installing KDE, you'll also need to install kdebase, kdelibs
+and kdesupport.
+
+%prep
+rm -rf $RPM_BUILD_ROOT
+%setup -q
+make -f Makefile.cvs
+find . -name "*.moc" -exec rm -rf {} \;
+
+%build
+export KDEDIR=%{prefix} QTDIR=%{qtdir}
+CFLAGS="$RPM_OPT_FLAGS -DNO_DEBUG -DNDEBUG" CXXFLAGS="$RPM_OPT_FLAGS -DNO_DEBUG -DNDEBUG" ./configure --prefix=%{prefix}
+make -j 2
+
+%install
+make install DESTDIR=$RPM_BUILD_ROOT
+for i in $RPM_BUILD_ROOT/%{prefix}/bin/*; do
+  strip -R .comment $i || : &>/dev/null
+done
+
+# don't make these world-writeable
+chmod go-w $RPM_BUILD_ROOT/%{prefix}/share/apps/kscd/*
+chmod go-w $RPM_BUILD_ROOT/%{prefix}/share/apps/kscd/cddb/*
+
+cd $RPM_BUILD_ROOT
+find . -type d | sed '1,2d;s,^\.,\%attr(-\,root\,root) \%dir ,' > \
+	$RPM_BUILD_DIR/file.list.%{name}
+
+find . -type f | sed -e 's,^\.,\%attr(-\,root\,root) ,' \
+	-e '/\/config\//s|^|%config|' >> \
+	$RPM_BUILD_DIR/file.list.%{name}
+
+find . -type l | sed 's,^\.,\%attr(-\,root\,root) ,' >> \
+	$RPM_BUILD_DIR/file.list.%{name}
+
+echo "%docdir %{prefix}/doc/kde" >> $RPM_BUILD_DIR/file.list.%{name}
+
+%clean
+rm -rf $RPM_BUILD_ROOT $RPM_BUILD_DIR/file.list.%{name}
+
+%files -f ../file.list.%{name}
+
+%changelog
+* Thu May 11 2000 Bernhard Rosenkraenzer <bero@redhat.com>
+- 1.90

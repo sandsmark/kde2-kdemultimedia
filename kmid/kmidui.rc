@@ -1,0 +1,47 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="kmid" version="1">
+<MenuBar>
+  <Menu name="file"><text>&amp;File</text>
+    <Action name="file_save_lyrics"/>
+  </Menu>
+  <Menu name="song"><text>&amp;Song</text>
+    <Action name="song_play"/>
+    <Action name="song_pause"/>
+    <Action name="song_stop"/>
+    <Action name="song_previous"/>
+    <Action name="song_next"/>
+    <Action name="song_loop"/>
+ </Menu>
+ <Menu name="collections"><text>&amp;Collections</text>
+    <Action name="collect_organize"/>
+    <Action name="play_order"/>
+    <Action name="collect_autoadd"/>
+ </Menu>
+ <Menu name="options"><text>&amp;Settings</text>
+    <Action name="file_type"/>
+    <Separator/>
+    <Action name="display_events"/>
+    <Action name="option_automatictext"/>
+    <Separator/>
+    <Action name="toggle_volumebar"/>
+    <Action name="toggle_channelview"/>
+    <Separator/>
+    <Action name="channelview_options"/>
+    <Action name="change_font"/>
+    <Action name="configure_keys"/>
+    <Action name="midi_setup"/>
+ </Menu>
+</MenuBar>
+<ToolBar fullWidth="true" name="mainToolBar"><text>Main Toolbar</text>
+    <Action name="song_previous"/>
+    <Action name="song_rewind"/>
+    <Action name="song_stop"/>
+    <Action name="song_pause"/>
+    <Action name="song_play"/>
+    <Action name="song_forward"/>
+    <Action name="song_next"/>
+    <Separator/>
+    <Action name="toggle_volumebar"/>
+    <Action name="toggle_channelview"/>
+</ToolBar>
+</kpartgui>

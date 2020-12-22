@@ -1,0 +1,3 @@
+kmix: shlib-missing-in-control-file libkcm_kmix.so usr/lib/libkcm_kmix.so
+kmix: shlib-missing-in-control-file kmixctrl.so usr/lib/kmixctrl.so
+

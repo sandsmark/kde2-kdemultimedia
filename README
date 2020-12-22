@@ -1,0 +1,57 @@
+In this file:
+
+* What it is
+* Common Mistakes
+* Debugging
+* More Info
+
+What it is
+----------
+
+* noatun: a multimedia player for sound and moview, very extensible due to
+it's plugin interface
+* aktion: a player specialiced on movies, needs xanim
+* kmid: a standalone and embeddable midi player, includes a karaoke-mode
+* kmidi: midi player, can use sound patch files and create a WAV file
+* kmix: the audio mixer as a standalone program and Kicker applet
+* kscd: a CD player with an interface to the internet CDDB database
+
+The following are libraries and plugins that are building the core infrastructure
+of above applications:
+
+* arts: a versatily multimedia system the consists of various little
+building blocks that you (or an application) can combine in almost arbitrary
+ways to create sound and video processing pipes
+* mpeglib: a library for MPEG 1 (layer I, II and III) encoded files
+* mpeglib_artsplug: wrapped mpeglib to make it Arts-aware
+* mpg123_artsplugin: a trimmed down mpg123 made Arts-compatible
+* oggvorbis_artsplugin: support for ogg-vorbis (not included) in Arts
+
+Common Mistakes
+---------------
+
+If configure claims Qt cannot be found, have a look at http://www.troll.no
+to get a copy of Qt, version 2.1.0 or newer.
+
+Debugging
+---------
+
+You can use --enable-debug with the configure script, if you want to have
+debug code in your KDE apps and libs.  I recommend to do this, since this
+is alpha software and this makes debugging things a whole lot easier.
+
+More Info
+---------
+
+Have a look at the individual subdirectories, if you want to know, what
+versions of apps are included.
+
+Please direct any bug reports to our bug list by visiting
+http://bugs.kde.org.
+
+If you have problems compiling and installing this package, contact
+me at coolo@kde.org.
+
+General KDE discussions should go to the KDE mailing list (kde@kde.org).
+
+$Id: README 106181 2001-07-15 13:21:44Z schurig $

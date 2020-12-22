@@ -1,0 +1,2 @@
+SUBDIRS = common $(ARTS_BUILD_KDE_GUI)
+DIST_SUBDIRS = common kde

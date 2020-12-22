@@ -1,0 +1,9 @@
+usr/share/apps/kmid/*
+usr/share/icons/hicolor/*/apps/kmid.*
+usr/share/applnk/Multimedia/kmid.desktop
+usr/share/mimelnk/audio/x-karaoke.desktop
+usr/share/servicetypes/audiomidi.desktop
+usr/lib/libkmidpart.la
+usr/lib/libkmidpart.so.*
+usr/bin/kmid
+usr/share/doc/kde/HTML/en/kmid/*

@@ -1,0 +1,337 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&noatun;">
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title>The &noatun; Handbook</title>
+
+<authorgroup>
+<author>
+<firstname>Charles</firstname>
+<surname>Samuels</surname>
+<affiliation>
+<address><email>charles@kde.org</email></address>
+</affiliation>
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<copyright>
+<year>2001</year>
+<holder>Charles Samuels</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2001-02-13</date>
+<releaseinfo>0.10.03</releaseinfo>
+
+<abstract>
+<para>&noatun; is a fully-featured plugin-based media player for &kde;.</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>Noatun</keyword>
+<keyword>kdemultimedia</keyword>
+<keyword>mp3</keyword>
+<keyword>music</keyword>
+<keyword>media</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>&noatun; is a fully-featured plugin-based media player for KDE.</para>
+
+<sect1 id="features">
+<title>Features</title>
+
+<para>By default, &noatun; supports the MP3 format, MPEG-1 video and Wav.  Other
+formats can be easily installed as plugins.  As of this writing, there are
+plugins for OpenDivx.  OggVorbis is also supported if the libraries were
+availible during the compilation of mpeglib.  See the <ulink
+url="http://mpeglib.sourceforge.net">mpeglib</ulink> for other plugins.
+</para>
+
+</sect1>
+</chapter>
+
+<chapter id="using-noatun">
+<title>Using &noatun;</title>
+
+<para>&noatun;, by default, starts with the Excellent user interface plugin.
+This plugin was chosen since it bears the most similarity to other &kde;
+applications.</para>
+
+<para>&noatun; is unique in that no two installations are the same, and there is
+no standard interface, although there is a default one.</para>
+
+</chapter>
+
+<chapter id="using-noatun-plugins">
+<title>Using &noatun; Plugins</title>
+
+<para>You can select different plugins by going to the
+<guimenuitem>Settings</guimenuitem> menu, and selecting <guimenuitem>Configure
+Noatun</guimenuitem>.  Move to the <guilabel>Plugins</guilabel> by selecting the
+appropriate list item.  Then drag, or move the items with the arrow buttons.
+Enabled plugins are on the upper list, while disabled plugins are on the bottom
+list.</para>
+
+<sect1 id="milk-chocolate">
+<title>Milk Chocolate</title>
+
+<para>Milk Chocolate is a small, simple User Interface. The buttons behave
+mostly like a CD-player, and the <guiicon>eject</guiicon> button opens the
+playlist.  The <guiicon>sheet with a cross</guiicon> button removes the current
+playlist item, but does not delete the file from disk, and the
+<guiicon>arrow</guiicon> button sets the looping mode.  A menu is available by
+&RMB; clicking anywhere in the window.</para>
+
+</sect1>
+
+<sect1 id="young-hickory">
+
+<title>Young Hickory</title>
+
+<para>Young hickory is a plugin for the &kde; System Tray, the area near the
+clock, by default.</para>
+
+<para>&RMB; clicking on the icon will show a small menu, and &LMB; clicking
+will toggle the visibility of your &noatun; user-interface windows.  Note that
+playlists, for example, are not considered user-interfaces.</para>
+
+</sect1>
+
+<sect1 id="id3-reader">
+<title>ID3 Reader</title>
+
+<para>The ID3 reader will read the ID3 tag information from MP3 files, and set
+the song titles in the format you've requested.  The <guilabel>ID3 tag
+loader</guilabel> page in the Noatun preferences window will allow you to modify
+the format.  Enter the format string in the first textbox, and a preview will
+appear on the second. </para>
+
+<para>You can also modify the ID3 tags of the files from the
+<guimenuitem>Plugins</guimenuitem> menu, <guimenuitem>ID3
+Editor</guimenuitem></para>
+
+</sect1>
+
+<sect1 id="html-exporter">
+<title><acronym>HTML</acronym> Playlist Export</title>
+
+<para>This plugin will place your playlist in a nice <acronym>HTML</acronym>
+table.  Its preferences page will allow you to set colors, background image, and
+enable the Hover mode, for changing colors when the cursor is over a
+link.</para>
+
+<para>After setting options, the <guimenu>Player</guimenu> menu's
+<guimenuitem>Playlist Export</guimenuitem> will open a file dialog for you to
+select where to save the output. </para>
+
+</sect1>
+
+<sect1 id="kjofol-skin">
+<title><application>KJofol</application> Skins</title>
+
+<para>The &noatun; <application>KJofol</application> skin loader is a partial
+reimplementation of a  &Windows; program under the same name.</para> 
+
+<para>&noatun;'s implementation has a few limitations, unfortunately.  The skins
+must be <literal role="extension">PNG</literal> based, and uncompressed on
+disk.</para>
+
+<para>To install a skin, (in the <trademark>Windows</trademark> ZIP format),
+follow these commands:</para>
+
+<screen><prompt>%</prompt> <userinput><command>cd</command> <filename class="directory">$KDEHOME/share/apps/noatun</filename></userinput>
+<prompt>%</prompt> <userinput><command>mkdir</command> <option>skins</option></userinput> (if needed)
+<prompt>%</prompt> <userinput><command>cd</command> <option>skins</option></userinput>
+<prompt>%</prompt> <userinput><command>mkdir</command> <option>new_skin</option> ; <command>cd</command> <replaceable>new_skin</replaceable></userinput>
+<prompt>%</prompt> <userinput><command>unzip</command> <replaceable>/path/to/new_skin.zip</replaceable></userinput></screen>
+								      
+<para>If the images aren't <acronym>PNG</acronym> based, you can easily convert
+them with the following script, after changing to the skin's directory.  Replace
+<userinput>bmp</userinput> with the another image format if needed.</para>
+      
+<screen><prompt>%</prompt> <userinput>for i in *.bmp ; do convert $i `echo $i | sed s/bmp$/png/`; done; rm *.bmp</userinput>
+<prompt>%</prompt> <userinput><command>cat</command> <filename>skin.rc</filename> | <command>sed</command> <option>s/\.bmp/\.png/g</option> &gt; <filename>temp</filename> ; <command>mv</command> <filename>temp</filename> <filename>skin.rc</filename></userinput></screen>
+
+<para>You can also make your own skins with the tutorial at <ulink
+url="http://www.angelfire.com/mo/nequiem/tutorial.html">http://www.angelfire.com/mo/nequiem/tutorial.html</ulink>.
+&noatun;'s implementation does not have support for the Dock/Windowshade mode,
+and the seeker cannot be a bar.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="questions-answers-and-tips">
+
+<title>Questions, Answers, and Tips</title>
+
+<qandaset id="faq">
+<title>Frequently asked questions</title>
+<qandaentry>
+<question>
+<para>The music skips a lot when moving windows.</para>
+</question>
+<answer>
+<para>
+Have &arts; buffer more by starting the &kcontrol;, and moving
+to the <guilabel>Sound</guilabel> group, and <guilabel>Soundserver</guilabel>
+section, then increasing the response time.  348ms is usually sufficient for most
+computers. You may also consider running the soundserver with real-time priority
+if setting the response time doesn't help.  Be aware that this can
+cause your system to lock-up.
+</para>
+</answer>
+</qandaentry>
+<qandaentry>
+<question>
+<para>The <guimenu>Plugins</guimenu> menu is empty.</para>
+</question>
+<answer>
+<para>
+Not every plugin puts an item in there.  The ID3 plugin does, for
+editing the currently playing file's ID3 tag.
+</para>
+</answer>
+</qandaentry>
+ <qandaentry>
+<question>
+<para>I can't remove a playlist or user-interface from the plugins list.</para>
+</question>
+<answer>
+<para>
+Since &noatun; requires at least one user-interface loaded, and exactly
+one playlist, you have to add a new user-interface plugin before
+removing the old one.  Adding a new playlist will automatically
+remove the old one.
+</para>
+</answer>
+</qandaentry>
+ <qandaentry>
+<question>
+<para>Where can I get more plugins?</para>
+</question>
+<answer>
+<para>
+Third-party developers can submit their own plugins to the
+<ulink url="http://noatun.kde.org/plugins.phtml">&noatun; web-site</ulink>, where they
+can be downloaded by you, the users.
+</para>
+</answer>
+</qandaentry>
+<qandaentry>
+<question>
+<para>How do I write a &noatun; plugin?</para>
+</question>
+<answer>
+<para>
+Documentation, an <acronym>API</acronym> reference, and example source code is
+available at the <ulink url="http://noatun.kde.org">&noatun; web-site</ulink>.
+Also, in the spirit of Open Source software, the source code to
+&noatun;, and all default plugins is available.
+</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title>Credits and Licenses</title>
+
+<para>Program copyright 2000-2001 Charles Samuels
+<email>charles@kde.org</email></para>
+
+<para>Documentation copyright 2001 Charles Samuels
+<email>charles@kde.org</email></para>
+
+<para>&noatun; has been brought to you by the following people:</para>
+
+<itemizedlist>
+<listitem>
+<para>Charles Samuels <email>charles@kde.org</email></para>
+</listitem>
+<listitem>
+<para>Neil Stevens <email>multivac@fcmail.com</email></para>
+</listitem>
+<listitem>
+<para>Stefan Westerfeld <email>stefan@space.twc.de</email></para>
+</listitem>
+<listitem>
+<para>Martin Vogt <email>mvogt@rhrk.uni-kl.de</email></para>
+</listitem>
+<listitem>
+<para>Malte Starostik <email>malte.starostik@t-online.de</email></para>
+</listitem>
+<listitem>
+<para>Nikolas Zimmermann <email>wildfox@kde.org</email></para>
+</listitem>
+<listitem>
+<para>Stefan Schimanski <email>1Stein@gmx.de</email></para>
+</listitem>
+</itemizedlist>
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+&underFDL;
+&underBSDLicense;
+
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="how-to-obtain-Noatun">
+<title>How to obtain &noatun;</title>
+
+<para>&noatun; is included with all &kde; releases after 2.1.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Requirements</title>
+
+<para>&noatun; requires at least a Pentium 200 with &Linux;, a PowerPC with
+&Linux; 2.4.1 or later, or several other platforms.  Support for more platforms
+will be available in later versions.</para>
+
+<para>For a platform to be supported easily, it must have pthread support, and
+the <acronym>OSS</acronym> sound output system, however <acronym>ALSA</acronym>
+is supported under &Linux;.</para> 
+
+</sect1>
+
+<sect1 id="compilation-and-installation">
+<title>Compilation and Installation</title>
+
+<para>Compiling &noatun; is very easy.  The following should do it:</para>
+
+<screen>
+<prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command> <option>install</option></userinput></screen>
+
+<para>That should do it! Should you run into any problems, please report them to
+the author at <email>charles@kde.org</email>.</para>
+
+<para>If you have this documentation, you've probably already compiled
+&noatun;</para>
+
+</sect1>
+
+</appendix>
+
+&documentation.index; 
+</book>
+

@@ -1,0 +1,8 @@
+?package(kscd):\
+	needs=x11\
+	section=Apps/Sound\
+	hints="KDE"\
+	kderemove="y"\
+	title="Kscd"\
+	command=/usr/bin/kscd
+

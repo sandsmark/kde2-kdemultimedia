@@ -1,0 +1,14 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="artscontrol" version="3">
+<MenuBar>
+  <Menu name="view"><text>&amp;View</text>
+    <Action name="view_fft_scope"/>
+    <Action name="view_audio_manager"/>
+	<Action name="view_arts_statusview"/>
+    <Action name="view_midi_manager"/>
+    <Action name="view_media_types"/>
+    <Action name="view_freeverb"/>
+	<Action name="old_volume_display"/>
+  </Menu>
+</MenuBar>
+</kpartgui>

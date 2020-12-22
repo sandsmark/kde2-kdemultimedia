@@ -1,0 +1,7 @@
+Interface=OGGPlayObject,Arts::PitchablePlayObject,Arts::PlayObject,Arts::SynthModule,Arts::Object
+Author="Martin Vogt <mvogt@rhrk.uni-kl.de>"
+URL="http://mpeglib.sourceforge.net"
+Extension=ogg
+MimeType=audio/x-ogg,application/x-ogg
+Language=C++
+Library=libarts_mpeglib.la

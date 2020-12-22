@@ -1,0 +1,6 @@
+Interface=Arts::oggPlayObject,Arts::PlayObject,Arts::SynthModule,Arts::Object
+Library=liboggarts.la
+Author=Alex Zepeda <jazepeda@pacbell.net>
+Extension=ogg
+MimeType=audio/x-ogg
+Language=C++

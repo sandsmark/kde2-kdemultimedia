@@ -1,0 +1,8 @@
+?package(noatun):\
+	needs=x11\
+	section=Apps/Sound\
+	hints="KDE"\
+	kderemove="y"\
+	title="Noatun"\
+	command=/usr/bin/noatun
+

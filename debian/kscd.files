@@ -1,0 +1,12 @@
+usr/lib/libworkman.so.1.4.3
+usr/lib/libworkman.so.1
+usr/lib/libworkman.la
+usr/bin/workman2cddb.pl
+usr/bin/kscd
+usr/share/icons/hicolor/*/apps/kscd.*
+usr/share/applnk/Multimedia/kscd.desktop
+usr/share/mimelnk/text/xmcd.desktop
+usr/share/apps/kscd/*
+usr/share/doc/kde/HTML/en/kscd/*
+usr/share/lintian/overrides/kscd
+etc/kde2/kscdrc

@@ -1,0 +1,14 @@
+CDDB is not supported and does not work.  Here is a note
+from upstream about it:
+
+"Due to several conflicts regarding the CDDB licensing (including unanswered
+e-mails) CDDB is no longer supported.
+
+Please use freedb instead. This is KSCD's new default server for Audio-CD
+information.
+Pressing the "Defaults" button on the CDDB page in the KSCD configuration
+dialog and select
+the server you wish to use. This will also change the address for submitting
+new entries. " - Dirk Försterling <milliByte@gmx.net>
+
+

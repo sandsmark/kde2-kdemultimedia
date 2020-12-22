@@ -1,0 +1,6 @@
+audio/mpeg; noatun %s; test=test "$DISPLAY" != "" 
+audio/mpegurl; noatun %s; test=test "$DISPLAY" != "" 
+audio/x-wav; noatun %s; test=test "$DISPLAY" != "" 
+audio/x-mp3; noatun %s; test=test "$DISPLAY" != ""
+audio/x-ogg; noatun %s; test=test "$DISPLAY" != ""
+audio/x-mp2; noatun %s; test=test "$DISPLAY" != ""
