@@ -8,6 +8,11 @@ set(noatun_lib_SRCS
     stereobuttonaction.cpp
     )
 
+qt2_wrap_moc(noatun_lib_SRCS
+    SOURCES
+        plugin.h
+        plugin_deps.h
+    )
 qt2_wrap_cpp(noatun_lib_SRCS
     SOURCES
         cmodule.h
@@ -24,8 +29,6 @@ qt2_wrap_cpp(noatun_lib_SRCS
         noatunpref.h
         noatunstdaction.h
         player.h
-        plugin_deps.h
-        plugin.h
         pluginmodule.h
         stereobuttonaction.h
 )
