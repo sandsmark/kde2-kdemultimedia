@@ -3,7 +3,7 @@
 
 #include <qobject.h>
 #include <kurl.h>
-#include <arts/kmedia2.h>
+#include <kmedia2.h>
 
 class Visualization;
 class PlaylistItem;

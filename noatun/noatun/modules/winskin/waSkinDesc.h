@@ -19,7 +19,7 @@
 #include <qpixmap.h>
 #include <qstring.h>
 #include <qobject.h>
-#include <iostream.h>
+#include <iostream>
 
 typedef struct {
   const char* filename;

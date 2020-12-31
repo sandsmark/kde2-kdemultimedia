@@ -11,7 +11,7 @@
 // Abandon All Hope, Ye Who Enter Here
 
 
-#include <iostream.h>
+#include <iostream>
 #include <qmap.h>
 
 #include <qlayout.h>

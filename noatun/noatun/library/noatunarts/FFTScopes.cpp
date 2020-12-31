@@ -24,6 +24,7 @@ Boston, MA 02111-1307, USA.
 #include "fft.h"
 #include <stdsynthmodule.h>
 #include <math.h>
+#include <string.h>
 
 using namespace std;
 using namespace Arts;

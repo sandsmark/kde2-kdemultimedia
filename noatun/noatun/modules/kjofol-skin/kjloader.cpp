@@ -22,7 +22,7 @@
 #include "kjprefs.h"
 #include "equalizer.h"
 #include <qdragobject.h>
-#include <iostream.h>
+#include <iostream>
 #include <math.h>
 #include <noatunstdaction.h>
 #include <stdlib.h>

@@ -15,7 +15,7 @@
 #ifndef __SPECTRUMIMAGE_H
 #define __SPECTRUMIMAGE_H
 
-#include <iostream.h>
+#include <iostream>
 #include <qpixmap.h> 
 #include <qpainter.h> 
 

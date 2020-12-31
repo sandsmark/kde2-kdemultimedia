@@ -3,7 +3,7 @@
 #include <qstring.h>
 #include <qfile.h>
 #include <qdatastream.h>
-#include <iostream.h>
+#include <iostream>
 #include <kdebug.h>
 
 #include "l33tFileInfo.h"

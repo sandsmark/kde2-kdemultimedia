@@ -15,7 +15,7 @@
 #ifndef _GUISPECTRUMANALYSER_H
 #define _GUISPECTRUMANALYSER_H
 
-#include <iostream.h>
+#include <iostream>
 #include <qpainter.h>
 #include <qtimer.h> 
 #include <qpixmap.h> 

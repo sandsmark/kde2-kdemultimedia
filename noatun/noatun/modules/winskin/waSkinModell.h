@@ -16,7 +16,7 @@
 #ifndef __WASKINMODELL_H
 #define __WASKINMODELL_H
 
-#include <iostream.h>
+#include <iostream>
 #include <qstring.h>
 #include <waSkins.h>
 #include <waSkinDesc.h>

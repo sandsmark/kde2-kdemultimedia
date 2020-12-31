@@ -6,7 +6,7 @@
 #include <noatunapp.h>
 #include <player.h>
 #include <soundserver.h> 
-#include <iostream.h>
+#include <iostream>
 #include <noatunarts.h>
 #include <qlayout.h>
 

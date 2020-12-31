@@ -36,6 +36,8 @@
 #include <signal.h>
 #include <kmimetype.h>
 
+#include <png.h>
+
 
 using std::string;
 using std::vector;
@@ -363,6 +365,7 @@ void NoatunApp::saveState(QSessionManager &sm)
 	KApplication::saveState(sm);
 }
 
+#if 0
 /*********************************************
  * The following code (c) Troll Tech, AS
  * It was stolen from qpngio.cpp
@@ -583,15 +586,16 @@ static bool read_png_image(QFile *file, QImage &image)
 
 	return true;
 }
+#endif
 
 
 QImage NoatunApp::readPNG(const QString &filename)
 {
-	QFile file(filename);
-	file.open(IO_ReadOnly);
-	QImage image;
-	read_png_image(&file, image);
-	file.close();
+	//QFile file(filename);
+	//file.open(IO_ReadOnly);
+	QImage image(filename);
+	//read_png_image(&file, image);
+	//file.close();
 	return image;
 }
 

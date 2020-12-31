@@ -11,7 +11,7 @@
 #include "parser.h"
 #include <qbitmap.h>
 #include <qlist.h>
-#include <iostream.h>
+#include <iostream>
 #include <qcstring.h>
 
 

@@ -25,7 +25,7 @@
 #include <qtimer.h>
 #include <qkeycode.h>
 #include <math.h>
-#include <iostream.h>
+#include <iostream>
 #include <qpen.h>
 
 #define PI 3.1415926

@@ -12,7 +12,7 @@
 #include <noatunarts.h>
 #include <dcopclient.h>
 #include <dispatcher.h>
-#include <iostream.h>
+#include <iostream>
 
 using std::vector;
 
@@ -98,7 +98,7 @@ Visualization::Visualization(int timeout, int pid)
 		}
 		else
 		{
-			cerr << "Internal Vis" <<endl;
+                    std::cerr << "Internal Vis" <<std::endl;
 			mVisualizationStack=napp->player()->engine()->visualizationStack()->toString().c_str();
 			mServer=new Arts::SoundServerV2(*(napp->player()->engine()->server()));
 			return;
