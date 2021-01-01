@@ -1,0 +1,7 @@
+Interface=xinePlayObject,Arts::PlayObject,Arts::VideoPlayObject,Arts::SynthModule,Arts::Object
+Author=Ewald Snel <ewald@rambo.its.tudelft.nl>
+Extension=vob,mpg,mpeg,m1v,m2v,m1s,m2s,m2p,avi,asf,asx,wmv,qt,mov,moov,rv,ra,ram,rm,smi
+MimeType=video/x-mpg,video/x-dat,video/x-mpeg,video/mpeg,video/x-msvideo,video/x-ms-asf,video/x-ms-wmv,video/quicktime,application/vnd.ms-asf,application/vnd.rn-realmedia,video/vnd.rn-realvideo,audio/vnd.rn-realaudio,audio/x-pn-realaudio
+Language=C++
+Library=libarts_xine.la
+Preference=4
