@@ -32,7 +32,7 @@ qt2_wrap_cpp(noatun_lib_SRCS
         pluginmodule.h
         stereobuttonaction.h
 )
-kde2_library(noatun
+kde2_library(libnoatun
     SOURCES
         ${noatun_lib_SRCS}
     LIBS

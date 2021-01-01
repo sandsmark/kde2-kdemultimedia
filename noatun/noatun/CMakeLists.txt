@@ -7,7 +7,7 @@ kde2_kidl(noatun_main_SRCS
     joinhandler.h
     )
 
-kde2_kinit_executable(noatunmain
+kde2_kinit_executable(noatun
     SOURCES
         ${noatun_main_SRCS}
     LIBS
